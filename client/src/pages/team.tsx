@@ -135,7 +135,7 @@ export default function Team() {
                     src={teamMembers[0].image}
                     alt={teamMembers[0].name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 team-member-image filter-none"
-                    style={{ objectPosition: "50% 15%" }}
+                    style={{ objectPosition: "50% 50%", objectFit: "contain", backgroundColor: "white" }}
                   />
                 </div>
 

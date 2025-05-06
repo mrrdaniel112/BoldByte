@@ -45,11 +45,27 @@ export default function Book() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      await sendContactForm(data);
+      // Send request to the backend API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      // Check if response is successful
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+      
+      // Show success message
       toast({
         title: "Form submitted successfully",
         description: "We'll get back to you within 24 hours.",
       });
+      
+      // Redirect to success page
       setLocation('/success');
     } catch (error) {
       console.error('Error submitting form:', error);
