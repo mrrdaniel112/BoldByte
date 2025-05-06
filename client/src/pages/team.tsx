@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     name: "Sarah Chen",
     title: "Backend Lead",
     bio: "Specialized in building scalable server architectures and optimizing database performance. Experienced with Node.js, Python, and cloud infrastructure.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    image: "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
     name: "Michael Patel",
     title: "Mobile Development Specialist",
     bio: "Creates seamless cross-platform mobile experiences with React Native and Flutter. Focused on performance optimization and offline-first strategies.",
-    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    image: "https://images.unsplash.com/photo-1531891570158-e71b35a485bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
@@ -81,7 +81,7 @@ const teamMembers: TeamMember[] = [
     name: "Taylor Kim",
     title: "UX/UI Designer",
     bio: "Combines artistic vision with user-centered design principles to create beautiful, functional interfaces that elevate the user experience.",
-    image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    image: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1295&q=80",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com"

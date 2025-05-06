@@ -150,10 +150,10 @@
 
 /* Team member images */
 .team-member-image {
-  filter: grayscale(20%) contrast(105%) brightness(95%);
+  filter: grayscale(35%) contrast(105%) brightness(92%) saturate(90%);
   transition: filter 0.3s ease;
 }
 
 .group:hover .team-member-image {
-  filter: grayscale(0%) contrast(100%) brightness(100%);
+  filter: grayscale(10%) contrast(100%) brightness(100%) saturate(100%);
 }
