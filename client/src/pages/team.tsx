@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     name: "Alex Morgan",
     title: "Frontend Lead",
     bio: "Expert in React and modern UI frameworks. Passionate about creating intuitive user experiences with a keen eye for design and detail.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     name: "Sarah Chen",
     title: "Backend Lead",
     bio: "Specialized in building scalable server architectures and optimizing database performance. Experienced with Node.js, Python, and cloud infrastructure.",
-    image: "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
+    image: "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
     name: "Michael Patel",
     title: "Mobile Development Specialist",
     bio: "Creates seamless cross-platform mobile experiences with React Native and Flutter. Focused on performance optimization and offline-first strategies.",
-    image: "https://images.unsplash.com/photo-1531891570158-e71b35a485bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
@@ -70,7 +70,7 @@ const teamMembers: TeamMember[] = [
     name: "Jamie Rodriguez",
     title: "AI & ML Specialist",
     bio: "Implements cutting-edge machine learning solutions and AI integrations. Experienced in TensorFlow, PyTorch, and natural language processing.",
-    image: "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=922&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -81,7 +81,7 @@ const teamMembers: TeamMember[] = [
     name: "Taylor Kim",
     title: "UX/UI Designer",
     bio: "Combines artistic vision with user-centered design principles to create beautiful, functional interfaces that elevate the user experience.",
-    image: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1295&q=80",
+    image: "https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com"
@@ -92,7 +92,7 @@ const teamMembers: TeamMember[] = [
     name: "Jordan Smith",
     title: "DevOps Engineer",
     bio: "Automation expert who builds and maintains our CI/CD pipelines. Ensures smooth deployments and robust infrastructure across all client projects.",
-    image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=999&q=80",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -130,7 +130,7 @@ export default function Team() {
           <div className="flex flex-col md:flex-row items-center gap-12 animate-item">
             <div className="w-full md:w-1/2">
               <div className="relative group">
-                <div className="w-full h-96 overflow-hidden rounded-xl flex items-center justify-center bg-[#121820] team-member-image-container">
+                <div className="w-full h-96 overflow-hidden rounded-xl flex items-center justify-center bg-white team-member-image-container">
                   <img 
                     src={teamMembers[0].image}
                     alt={teamMembers[0].name}
@@ -197,7 +197,7 @@ export default function Team() {
                 className="bg-[#0B0C10] rounded-xl overflow-hidden border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 group animate-item"
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               >
-                <div className="h-60 overflow-hidden flex items-center justify-center bg-[#121820] team-member-image-container">
+                <div className="h-60 overflow-hidden flex items-center justify-center bg-white team-member-image-container">
                   <img 
                     src={member.image}
                     alt={member.name}

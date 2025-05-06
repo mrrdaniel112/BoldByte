@@ -150,30 +150,16 @@
 
 /* Team member images */
 .team-member-image {
-  filter: grayscale(35%) contrast(105%) brightness(92%) saturate(90%);
+  filter: grayscale(25%) contrast(100%) brightness(95%) saturate(95%);
   transition: filter 0.3s ease;
-  background-color: #121820; /* Dark background */
+  background-color: #ffffff; /* White background */
 }
 
 .team-member-image-container {
   position: relative;
-}
-
-.team-member-image-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(18, 24, 32, 0.4) 0%, rgba(18, 24, 32, 0.8) 100%);
-  pointer-events: none;
+  background-color: #ffffff;
 }
 
 .group:hover .team-member-image {
-  filter: grayscale(10%) contrast(100%) brightness(100%) saturate(100%);
-}
-
-.group:hover .team-member-image-container::after {
-  background: linear-gradient(to bottom, rgba(18, 24, 32, 0.1) 0%, rgba(18, 24, 32, 0.6) 100%);
+  filter: grayscale(5%) contrast(100%) brightness(100%) saturate(100%);
 }
