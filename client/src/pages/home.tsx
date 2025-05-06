@@ -372,19 +372,19 @@ export default function Home() {
             {/* Project 2 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-                alt="Analytics dashboard interface" 
+                src={blockchainImage} 
+                alt="Blockchain system interface" 
                 className="w-full h-56 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Analytics Dashboard</h3>
+                <h3 className="text-xl font-bold mb-2">Blockchain Supply Chain</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
-                  Real-time data visualization platform for a SaaS company.
+                  Transparent blockchain-based verification system for product authenticity.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Vue.js</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">D3.js</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Firebase</span>
+                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Solidity</span>
+                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">React</span>
+                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Node.js</span>
                 </div>
               </div>
             </div>
@@ -392,19 +392,19 @@ export default function Home() {
             {/* Project 3 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
               <img 
-                src="https://pixabay.com/get/g7f037d6700f7d39b14559d21add9998ad50e5dfc38787ed5dcbb2d1fa4008417bd6f91c3b6052d5fd7c2d2330dd86e5bfffe26113bddc25ee89c0126f37df0c2_1280.jpg" 
+                src={healthAppImage} 
                 alt="Mobile app user interface" 
                 className="w-full h-56 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Social Mobile App</h3>
+                <h3 className="text-xl font-bold mb-2">HealthTrack Pro App</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
-                  User-friendly mobile application with social features and notifications.
+                  Fitness and health tracking mobile application with real-time health monitoring.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">React Native</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Firebase</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Redux</span>
+                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">GraphQL</span>
+                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">AWS</span>
                 </div>
               </div>
             </div>
@@ -413,7 +413,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-6 bg-[#0B0C10]">
+      <section id="testimonials-section" className="py-20 px-6 bg-[#0B0C10]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-item">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Testimonials</h2>
@@ -423,69 +423,130 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.slice(0, 3).map((testimonial, index) => (
-              <div 
-                id={`${portfolioProjects[index].id}-testimonial`}
-                key={index} 
-                className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item"
-                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
-              >
-                <div className="flex text-[#66FCF1] mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Icon key={i} name="star" className="h-5 w-5" />
-                  ))}
-                </div>
-                <div className="mb-3 text-sm font-semibold text-[#66FCF1]">
-                  Project: {testimonial.project}
-                </div>
-                <blockquote className="text-[#C5C6C7] mb-6 text-sm">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#0B0C10] flex items-center justify-center text-[#66FCF1] font-bold mr-3">
-                    {testimonial.initials}
+          {activeTestimonial ? (
+            // Show the active testimonial when a project is selected
+            <div className="max-w-3xl mx-auto">
+              {portfolioProjects.map((project, index) => (
+                project.id === activeTestimonial && (
+                  <div 
+                    key={index}
+                    className="bg-[#1F2833] rounded-xl p-8 border-2 border-[#66FCF1] animate-item transition-all duration-500 shadow-lg shadow-[#66FCF1]/20"
+                  >
+                    <div className="flex flex-col md:flex-row items-start gap-6">
+                      <div className="w-full md:w-1/3">
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="w-full h-48 object-cover object-center rounded-lg mb-4"
+                        />
+                        <h3 className="text-xl font-bold">{project.title}</h3>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {project.techs.map((tech, techIndex) => (
+                            <span key={techIndex} className="text-xs bg-[#0B0C10] px-2 py-1 rounded">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="w-full md:w-2/3">
+                        <div className="flex text-[#66FCF1] mb-4">
+                          {[...Array(5)].map((_, i) => (
+                            <Icon key={i} name="star" className="h-5 w-5" />
+                          ))}
+                        </div>
+                        <blockquote className="text-white mb-6 text-lg italic">"{project.testimonial.quote}"</blockquote>
+                        <div className="flex items-center">
+                          <div className="w-10 h-10 rounded-full bg-[#66FCF1]/20 flex items-center justify-center text-[#66FCF1] font-bold mr-3">
+                            {project.testimonial.initials}
+                          </div>
+                          <div>
+                            <p className="font-bold text-white">{project.testimonial.name}</p>
+                            <p className="text-[#C5C6C7]">{project.testimonial.role}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-8 text-center">
+                      <Button 
+                        variant="ghost" 
+                        className="text-[#C5C6C7] hover:text-white"
+                        onClick={() => setActiveTestimonial(null)}
+                      >
+                        View All Testimonials
+                      </Button>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-xs text-[#C5C6C7]">{testimonial.role}</p>
+                )
+              ))}
+            </div>
+          ) : (
+            // Show all testimonials if none is selected
+            <>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {testimonials.slice(0, 3).map((testimonial, index) => (
+                  <div 
+                    id={`${portfolioProjects[index].id}-testimonial`}
+                    key={index} 
+                    className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item hover:border-[#66FCF1] transition-all duration-300"
+                    style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+                  >
+                    <div className="flex text-[#66FCF1] mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Icon key={i} name="star" className="h-5 w-5" />
+                      ))}
+                    </div>
+                    <div className="mb-3 text-sm font-semibold text-[#66FCF1]">
+                      Project: {testimonial.project}
+                    </div>
+                    <blockquote className="text-[#C5C6C7] mb-6 text-sm">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-full bg-[#0B0C10] flex items-center justify-center text-[#66FCF1] font-bold mr-3">
+                        {testimonial.initials}
+                      </div>
+                      <div>
+                        <p className="font-semibold">{testimonial.name}</p>
+                        <p className="text-xs text-[#C5C6C7]">{testimonial.role}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {testimonials.slice(3, 5).map((testimonial, index) => (
-              <div 
-                id={`${portfolioProjects[index + 3].id}-testimonial`}
-                key={index + 3} 
-                className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item"
-                style={{ animationDelay: `${0.1 * (index + 4)}s` }}
-              >
-                <div className="flex text-[#66FCF1] mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Icon key={i} name="star" className="h-5 w-5" />
-                  ))}
-                </div>
-                <div className="mb-3 text-sm font-semibold text-[#66FCF1]">
-                  Project: {testimonial.project}
-                </div>
-                <blockquote className="text-[#C5C6C7] mb-6 text-sm">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#0B0C10] flex items-center justify-center text-[#66FCF1] font-bold mr-3">
-                    {testimonial.initials}
+              
+              <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {testimonials.slice(3, 5).map((testimonial, index) => (
+                  <div 
+                    id={`${portfolioProjects[index + 3].id}-testimonial`}
+                    key={index + 3} 
+                    className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item hover:border-[#66FCF1] transition-all duration-300"
+                    style={{ animationDelay: `${0.1 * (index + 4)}s` }}
+                  >
+                    <div className="flex text-[#66FCF1] mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Icon key={i} name="star" className="h-5 w-5" />
+                      ))}
+                    </div>
+                    <div className="mb-3 text-sm font-semibold text-[#66FCF1]">
+                      Project: {testimonial.project}
+                    </div>
+                    <blockquote className="text-[#C5C6C7] mb-6 text-sm">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-full bg-[#0B0C10] flex items-center justify-center text-[#66FCF1] font-bold mr-3">
+                        {testimonial.initials}
+                      </div>
+                      <div>
+                        <p className="font-semibold">{testimonial.name}</p>
+                        <p className="text-xs text-[#C5C6C7]">{testimonial.role}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-xs text-[#C5C6C7]">{testimonial.role}</p>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </div>
       </section>
 
