@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { Icon } from '@/components/ui/icon';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
+import danielGoldaImage from '@/assets/daniel-golda.jpg';
 
 interface TeamMember {
   id: string;
@@ -20,10 +21,10 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: "founder",
-    name: "Your Name", // Replace with your actual name
-    title: "Full Stack Developer / Founder",
-    bio: "Founded BOLDBYTE with a vision to create digital experiences that stand out. Passionate about innovative technologies and clean code architecture.",
-    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    name: "Daniel Golda",
+    title: "Full Stack Developer / Founder of BOLDBYTE",
+    bio: "Founder of BOLDBYTE with extensive experience in web and app development. Specializes in creating standout digital experiences through innovative technologies and clean code architecture.",
+    image: danielGoldaImage,
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
@@ -165,8 +166,8 @@ export default function Team() {
                 {teamMembers[0].bio}
               </p>
               <p className="text-[#C5C6C7] italic mb-8">
-                "I founded BOLDBYTE with a mission to build digital products that don't just function, but inspire. 
-                Our talented team brings this vision to life with every project we undertake."
+                "I founded BOLDBYTE with a mission to build digital products that don't just function, but inspire and stand out. 
+                Our talented team combines technical expertise with creative vision to deliver solutions that exceed client expectations."
               </p>
               <Button 
                 size="lg" 
