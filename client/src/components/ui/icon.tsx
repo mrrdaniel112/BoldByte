@@ -17,7 +17,8 @@ export function IconProvider({ children }: { children: React.ReactNode }) {
       const iconMap: Record<string, React.ComponentType<LucideProps>> = {};
       await Promise.all(
         Object.keys(dynamicIconImports).map(async (icon) => {
-          const importedIcon = await import(`lucide-react/dist/esm/icons/${icon}`);
+          // Add vite-ignore to prevent warnings on dynamic imports
+          const importedIcon = await import(/* @vite-ignore */ `lucide-react/dist/esm/icons/${icon}`);
           iconMap[icon] = importedIcon.default;
         })
       );
@@ -46,7 +47,8 @@ export function Icon({ name, className, ...props }: IconProps) {
       }
 
       try {
-        const imported = await import(`lucide-react/dist/esm/icons/${name}`);
+        // Add vite-ignore to prevent warnings on dynamic imports
+        const imported = await import(/* @vite-ignore */ `lucide-react/dist/esm/icons/${name}`);
         setIconComp(() => imported.default);
       } catch (error) {
         console.error(`Failed to load icon: ${name}`, error);

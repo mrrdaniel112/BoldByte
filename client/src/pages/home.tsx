@@ -141,7 +141,10 @@ export default function Home() {
   
   // Function to handle scrolling to testimonial
   const scrollToTestimonial = (projectId: string) => {
-    const elementId = `${projectId}-testimonial`;
+    // Set active testimonial
+    setActiveTestimonial(projectId);
+    
+    const elementId = 'testimonials-section';
     const element = document.getElementById(elementId);
     
     if (element) {
@@ -154,13 +157,6 @@ export default function Home() {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
-      // Highlight effect for the testimonial
-      element.style.transition = 'all 0.3s ease';
-      element.style.boxShadow = '0 0 0 2px #66FCF1';
-      setTimeout(() => {
-        element.style.boxShadow = 'none';
-      }, 2000);
     }
   };
 

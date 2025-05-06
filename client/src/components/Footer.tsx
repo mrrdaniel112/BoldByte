@@ -15,10 +15,10 @@ export default function Footer() {
               We design and develop custom websites, web applications, and mobile apps that help businesses grow.
             </p>
             <div className="flex space-x-4">
-              <SocialLink href="#" icon="twitter" label="Twitter" />
-              <SocialLink href="#" icon="linkedin" label="LinkedIn" />
-              <SocialLink href="#" icon="github" label="GitHub" />
-              <SocialLink href="#" icon="instagram" label="Instagram" />
+              <SocialLink href="#" icon="twitter-icon" label="Twitter" />
+              <SocialLink href="#" icon="linkedin-icon" label="LinkedIn" />
+              <SocialLink href="#" icon="github-icon" label="GitHub" />
+              <SocialLink href="#" icon="instagram-icon" label="Instagram" />
             </div>
           </div>
           
@@ -77,18 +77,30 @@ function FooterLink({ href, label }: FooterLinkProps) {
 
 type SocialLinkProps = {
   href: string;
-  icon: string;
+  icon: any; // Using any to avoid type issues with dynamic icons
   label: string;
 };
 
 function SocialLink({ href, icon, label }: SocialLinkProps) {
+  // Map social media names to actual Lucide icon names
+  const iconMap: Record<string, any> = {
+    'twitter-icon': 'twitter',
+    'linkedin-icon': 'linkedin',
+    'github-icon': 'github',
+    'instagram-icon': 'instagram'
+  };
+  
   return (
     <a 
       href={href} 
       className="text-[#C5C6C7] hover:text-[#66FCF1] transition-colors duration-200" 
       aria-label={label}
     >
-      <Icon name={icon} className="text-xl" />
+      {/* Render an emoji as fallback if icon isn't found */}
+      {icon === 'twitter-icon' && '🐦'}
+      {icon === 'linkedin-icon' && '🔗'}
+      {icon === 'github-icon' && '💻'}
+      {icon === 'instagram-icon' && '📷'}
     </a>
   );
 }
