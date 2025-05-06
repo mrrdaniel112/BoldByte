@@ -45,12 +45,38 @@ export default function Book() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      await sendContactForm(data);
-      toast({
-        title: "Form submitted successfully",
-        description: "We'll get back to you within 24 hours.",
-      });
-      setLocation('/success');
+      const result = await sendContactForm(data);
+      
+      if (result.success) {
+        if (result.maintenance) {
+          // Show maintenance message but still redirect to success
+          toast({
+            title: "Form received",
+            description: result.message || "Our email system is under maintenance, but we've received your request.",
+          });
+        } else {
+          toast({
+            title: "Form submitted successfully",
+            description: "We'll get back to you within 24 hours.",
+          });
+        }
+        setLocation('/success');
+      } else {
+        // If there was an issue but we have a maintenance message
+        if (result.maintenance) {
+          toast({
+            title: "Maintenance Notice",
+            description: result.message || "Our contact system is currently under maintenance. Please email us directly.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Error submitting form",
+            description: result.message || "Please try again later or email us at boldbyte.studio@gmail.com.",
+            variant: "destructive",
+          });
+        }
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({

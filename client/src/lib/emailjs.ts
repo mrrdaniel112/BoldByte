@@ -10,7 +10,7 @@ const formSchema = z.object({
 
 type ContactFormData = z.infer<typeof formSchema>;
 
-export async function sendContactForm(data: ContactFormData): Promise<boolean> {
+export async function sendContactForm(data: ContactFormData): Promise<{success: boolean; maintenance?: boolean; message?: string}> {
   try {
     // Validate the form data
     formSchema.parse(data);
@@ -27,16 +27,28 @@ export async function sendContactForm(data: ContactFormData): Promise<boolean> {
       body: JSON.stringify(data),
     });
     
+    const result = await response.json();
+    
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Error from API:', errorData);
-      throw new Error(errorData.message || 'Failed to submit form');
+      console.error('Error from API:', result);
+      // We'll let the component handle the error details
+      return {
+        success: false,
+        maintenance: result.maintenance || false,
+        message: result.message || 'Failed to submit form'
+      };
     }
     
-    const result = await response.json();
-    return result.success;
+    return {
+      success: true,
+      maintenance: result.maintenance || false,
+      message: result.message
+    };
   } catch (error) {
     console.error('Error in sendContactForm:', error);
-    throw error;
+    return {
+      success: false,
+      message: 'An error occurred while submitting the form. Please try again.'
+    };
   }
 }

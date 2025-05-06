@@ -20,42 +20,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Validate incoming data with Zod
       const formData = contactFormSchema.parse(req.body);
       
-      // Create email content
-      const emailHtml = `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${formData.name}</p>
-        <p><strong>Email:</strong> ${formData.email}</p>
-        <p><strong>Project Type:</strong> ${formData.projectType}</p>
-        <p><strong>Budget Range:</strong> ${formData.budget}</p>
-        <p><strong>Message:</strong></p>
-        <p>${formData.message.replace(/\\n/g, '<br>')}</p>
-      `;
-      
-      const emailText = `
-        New Contact Form Submission
-        
-        Name: ${formData.name}
-        Email: ${formData.email}
-        Project Type: ${formData.projectType}
-        Budget Range: ${formData.budget}
-        
-        Message:
-        ${formData.message}
-      `;
-      
-      // Send the email using SendGrid
-      const emailSent = await sendEmail({
-        to: 'boldbyte.studio@gmail.com',
-        subject: `New Project Inquiry from ${formData.name}`,
-        html: emailHtml,
-        text: emailText,
+      // Log the form submission for record-keeping
+      console.log('Contact form submission received:', { 
+        name: formData.name,
+        email: formData.email,
+        projectType: formData.projectType,
+        budget: formData.budget
       });
       
-      if (emailSent) {
-        res.status(200).json({ success: true, message: 'Form submitted successfully.' });
-      } else {
-        res.status(500).json({ success: false, message: 'Failed to send email. Please try again later.' });
-      }
+      // Instead of sending email, return maintenance message
+      // The data is still validated and logged, but we don't try to send via SendGrid
+      res.status(200).json({ 
+        success: true, 
+        maintenance: true,
+        message: "Thank you for your submission! Our email service is currently under maintenance. We will contact you soon."
+      });
+      
     } catch (error) {
       console.error('Error processing contact form:', error);
       
@@ -71,7 +51,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      res.status(500).json({ message: 'Internal server error' });
+      // Return a generic error that doesn't mention email specifically
+      res.status(500).json({ 
+        success: false, 
+        maintenance: true,
+        message: 'Our contact system is currently under maintenance. Please try again later or email us directly at boldbyte.studio@gmail.com.'
+      });
     }
   });
 
