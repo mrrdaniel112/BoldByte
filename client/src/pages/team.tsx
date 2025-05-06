@@ -246,7 +246,7 @@ export default function Team() {
             className="bg-[#66FCF1] text-[#0B0C10] hover:bg-[#45A29E] px-8 py-6 text-lg rounded-lg font-medium group"
             asChild
           >
-            <a href="mailto:careers@boldbyte.com">
+            <a href="mailto:boldbyte.studio@gmail.com">
               <span>Send Us Your Resume</span>
               <Icon name="arrow-right" className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </a>

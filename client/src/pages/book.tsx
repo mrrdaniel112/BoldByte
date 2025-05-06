@@ -55,7 +55,7 @@ export default function Book() {
       console.error('Error submitting form:', error);
       toast({
         title: "Error submitting form",
-        description: "Please try again later or contact us directly.",
+        description: "Please try again later or email us at boldbyte.studio@gmail.com.",
         variant: "destructive",
       });
     }
@@ -79,17 +79,7 @@ export default function Book() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email Us</h3>
-                    <p className="text-[#C5C6C7]">hello@boldbyte.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="text-[#66FCF1] text-xl mr-4 mt-1">
-                    <Icon name="phone" className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Call Us</h3>
-                    <p className="text-[#C5C6C7]">+1 (555) 123-4567</p>
+                    <p className="text-[#C5C6C7]">boldbyte.studio@gmail.com</p>
                   </div>
                 </div>
                 
