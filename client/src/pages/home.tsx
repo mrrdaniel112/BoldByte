@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Link } from 'wouter';
@@ -9,7 +9,43 @@ import EcommerceSvg from '@/components/ui/EcommerceSvg';
 import AiServiceSvg from '@/components/ui/AiServiceSvg';
 import AnalyticsSvg from '@/components/ui/AnalyticsSvg';
 
-const portfolioProjects = [
+// Project type definition
+type ProjectImage = React.ReactElement | string;
+
+// Component to render either a React component or an image URL
+const ProjectImageRenderer = ({ image, title }: { image: ProjectImage, title: string }) => {
+  if (React.isValidElement(image)) {
+    return (
+      <div className="w-full h-48 overflow-hidden">
+        {image}
+      </div>
+    );
+  }
+  
+  return (
+    <img 
+      src={image as string} 
+      alt={title} 
+      className="w-full h-48 object-cover object-center"
+    />
+  );
+};
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: ProjectImage;
+  techs: string[];
+  testimonial: {
+    quote: string;
+    name: string;
+    role: string;
+    initials: string;
+  };
+}
+
+const portfolioProjects: Project[] = [
   {
     id: 'storefront',
     title: 'StoreFront E-commerce Platform',
@@ -242,11 +278,7 @@ export default function Home() {
                 className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               >
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-48 object-cover object-center"
-                />
+                <ProjectImageRenderer image={project.image} title={project.title} />
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{project.title}</h3>
                   <p className="text-[#C5C6C7] text-sm mb-4">
@@ -279,11 +311,7 @@ export default function Home() {
                 className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
                 style={{ animationDelay: `${0.1 * (index + 4)}s` }}
               >
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-48 object-cover object-center"
-                />
+                <ProjectImageRenderer image={project.image} title={project.title} />
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{project.title}</h3>
                   <p className="text-[#C5C6C7] text-sm mb-4">
@@ -354,11 +382,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Project 1 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src="https://images.unsplash.com/photo-1610552050890-fe99536c2615?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-                alt="Modern e-commerce website" 
-                className="w-full h-56 object-cover object-top"
-              />
+              <div className="w-full h-56 overflow-hidden">
+                <EcommerceSvg className="w-full h-full" />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Modern E-commerce</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
@@ -433,11 +459,9 @@ export default function Home() {
                   >
                     <div className="flex flex-col md:flex-row items-start gap-6">
                       <div className="w-full md:w-1/3">
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-48 object-cover object-center rounded-lg mb-4"
-                        />
+                        <div className="w-full h-48 overflow-hidden rounded-lg mb-4">
+                          <ProjectImageRenderer image={project.image} title={project.title} />
+                        </div>
                         <h3 className="text-xl font-bold">{project.title}</h3>
                         <div className="flex flex-wrap gap-2 mt-2">
                           {project.techs.map((tech, techIndex) => (
