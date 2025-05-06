@@ -63,7 +63,7 @@ const portfolioProjects: Project[] = [
     id: 'ai-hub',
     title: 'AI Customer Service Hub',
     description: 'An AI-powered customer service platform that automates responses and improves efficiency for NexGen Solutions.',
-    image: "https://images.unsplash.com/photo-1677442135046-8dd4f693c03a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80",
     techs: ['Python', 'TensorFlow', 'React'],
     testimonial: {
       quote: "Our AI Customer Service Hub project was a game-changer. BOLDBYTE integrated advanced natural language processing that automated 75% of our support queries, reducing response times by 40% and significantly improving customer satisfaction scores.",
