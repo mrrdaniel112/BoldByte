@@ -7,6 +7,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [location] = useLocation();
+  const [portfolioActive, setPortfolioActive] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -17,11 +18,26 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Check if we're in the portfolio section
+      if (location === '/' && document.getElementById('portfolio')) {
+        const portfolioSection = document.getElementById('portfolio');
+        const portfolioRect = portfolioSection?.getBoundingClientRect();
+        
+        // If portfolio section is in view (with some padding for usability)
+        if (portfolioRect && 
+            portfolioRect.top <= 100 && 
+            portfolioRect.bottom >= 0) {
+          setPortfolioActive(true);
+        } else {
+          setPortfolioActive(false);
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location]);
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -36,7 +52,31 @@ export default function Navbar() {
           
           <div className="hidden md:flex space-x-8">
             <NavLink href="/" label="Home" currentPath={location} onClick={closeMenu} />
-            <NavLink href="/#portfolio" label="Portfolio" currentPath={location} onClick={closeMenu} />
+            <button 
+              className={`transition-colors duration-200 ${
+                portfolioActive ? 'text-[#66FCF1]' : 'text-white hover:text-[#66FCF1]'
+              }`}
+              onClick={() => {
+                closeMenu();
+                // Find the portfolio section and scroll to it
+                const portfolioSection = document.getElementById('portfolio');
+                if (portfolioSection) {
+                  const headerOffset = 80;
+                  const elementPosition = portfolioSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                } else {
+                  // If not found, likely on a different page
+                  window.location.href = '/#portfolio';
+                }
+              }}
+            >
+              Portfolio
+            </button>
             <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
@@ -60,7 +100,31 @@ export default function Navbar() {
         <div className="md:hidden bg-[#1F2833] px-6 py-4 border-b border-gray-800">
           <div className="flex flex-col space-y-4">
             <NavLink href="/" label="Home" currentPath={location} onClick={closeMenu} />
-            <NavLink href="/#portfolio" label="Portfolio" currentPath={location} onClick={closeMenu} />
+            <button 
+              className={`transition-colors duration-200 text-left ${
+                portfolioActive ? 'text-[#66FCF1]' : 'text-white hover:text-[#66FCF1]'
+              }`}
+              onClick={() => {
+                closeMenu();
+                // Find the portfolio section and scroll to it
+                const portfolioSection = document.getElementById('portfolio');
+                if (portfolioSection) {
+                  const headerOffset = 80;
+                  const elementPosition = portfolioSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                } else {
+                  // If not found, likely on a different page
+                  window.location.href = '/#portfolio';
+                }
+              }}
+            >
+              Portfolio
+            </button>
             <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
