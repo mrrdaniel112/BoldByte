@@ -136,6 +136,31 @@ const testimonials = [
 export default function Home() {
   useAnimateOnScroll('.animate-item');
 
+  // Function to handle scrolling to testimonial
+  const scrollToTestimonial = (projectId: string) => {
+    const elementId = `${projectId}-testimonial`;
+    const element = document.getElementById(elementId);
+    
+    if (element) {
+      // Smooth scroll with offset for the header
+      const headerOffset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Highlight effect for the testimonial
+      element.style.transition = 'all 0.3s ease';
+      element.style.boxShadow = '0 0 0 2px #66FCF1';
+      setTimeout(() => {
+        element.style.boxShadow = 'none';
+      }, 2000);
+    }
+  };
+
   useEffect(() => {
     document.title = "BOLDBYTE | Web & App Development Services";
     
@@ -144,20 +169,8 @@ export default function Home() {
       const hash = window.location.hash;
       if (hash && hash.includes('-testimonial')) {
         setTimeout(() => {
-          const element = document.getElementById(hash.substring(1));
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
-            // Add additional offset for header
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-            });
-          }
+          const projectId = hash.substring(1).replace('-testimonial', '');
+          scrollToTestimonial(projectId);
         }, 100);
       }
     };
@@ -248,11 +261,9 @@ export default function Home() {
                     variant="outline" 
                     size="sm" 
                     className="w-full mt-2 border-[#66FCF1] text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0B0C10]"
-                    asChild
+                    onClick={() => scrollToTestimonial(project.id)}
                   >
-                    <Link href={`#${project.id}-testimonial`}>
-                      Client Testimonial
-                    </Link>
+                    Client Testimonial
                   </Button>
                 </div>
               </div>
@@ -287,11 +298,9 @@ export default function Home() {
                     variant="outline" 
                     size="sm" 
                     className="w-full mt-2 border-[#66FCF1] text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0B0C10]"
-                    asChild
+                    onClick={() => scrollToTestimonial(project.id)}
                   >
-                    <Link href={`#${project.id}-testimonial`}>
-                      Client Testimonial
-                    </Link>
+                    Client Testimonial
                   </Button>
                 </div>
               </div>
@@ -391,38 +400,28 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Social Mobile App</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
-                  Community platform connecting enthusiasts in the fitness industry.
+                  User-friendly mobile application with social features and notifications.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">React Native</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">GraphQL</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">AWS</span>
+                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Firebase</span>
+                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Redux</span>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="text-center mt-12 animate-item">
-            <Button 
-              variant="outline" 
-              className="border-[#66FCF1] text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0B0C10] group"
-              asChild
-            >
-              <Link href="/work">
-                <span>View All Projects</span>
-                <Icon name="arrow-right" className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 px-6 bg-[#0B0C10]">
+      <section id="testimonials" className="py-20 px-6 bg-[#0B0C10]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-item">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Feedback</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Testimonials</h2>
             <div className="section-divider"></div>
+            <p className="text-[#C5C6C7] mt-6 max-w-2xl mx-auto">
+              Hear what our clients have to say about working with us
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
