@@ -138,6 +138,41 @@ export default function Home() {
 
   useEffect(() => {
     document.title = "BOLDBYTE | Web & App Development Services";
+    
+    // Handle smooth scrolling to testimonials for anchor links
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash && hash.includes('-testimonial')) {
+        setTimeout(() => {
+          const element = document.getElementById(hash.substring(1));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Add additional offset for header
+            const headerOffset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      }
+    };
+
+    // Smooth scroll on initial load if there's a hash
+    if (window.location.hash) {
+      handleHashChange();
+    }
+
+    // Add event listener for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   return (
@@ -393,6 +428,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {testimonials.slice(0, 3).map((testimonial, index) => (
               <div 
+                id={`${portfolioProjects[index].id}-testimonial`}
                 key={index} 
                 className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item"
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
@@ -424,6 +460,7 @@ export default function Home() {
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
             {testimonials.slice(3, 5).map((testimonial, index) => (
               <div 
+                id={`${portfolioProjects[index + 3].id}-testimonial`}
                 key={index + 3} 
                 className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item"
                 style={{ animationDelay: `${0.1 * (index + 4)}s` }}

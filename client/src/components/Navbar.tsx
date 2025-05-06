@@ -87,14 +87,31 @@ function NavLink({ href, label, currentPath, onClick }: NavLinkProps) {
     if (href.startsWith('#')) {
       e.preventDefault();
       const targetId = href.substring(1);
-      const element = document.getElementById(targetId);
-      if (element) {
-        const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
+      
+      // Add a small delay to ensure DOM is fully loaded
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          // Use scrollIntoView for better cross-browser compatibility
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Add manual offset due to fixed header
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        } else {
+          console.log(`Element with id ${targetId} not found`);
+        }
+      }, 100);
+      
       onClick();
     } else {
       onClick();
