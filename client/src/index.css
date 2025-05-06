@@ -147,3 +147,13 @@
 .section-divider {
   @apply h-1 w-20 bg-[#66FCF1] mx-auto;
 }
+
+/* Team member images */
+.team-member-image {
+  filter: grayscale(20%) contrast(105%) brightness(95%);
+  transition: filter 0.3s ease;
+}
+
+.group:hover .team-member-image {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
+}

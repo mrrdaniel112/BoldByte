@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     name: "Alex Morgan",
     title: "Frontend Lead",
     bio: "Expert in React and modern UI frameworks. Passionate about creating intuitive user experiences with a keen eye for design and detail.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2338&q=80",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     name: "Sarah Chen",
     title: "Backend Lead",
     bio: "Specialized in building scalable server architectures and optimizing database performance. Experienced with Node.js, Python, and cloud infrastructure.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
     name: "Michael Patel",
     title: "Mobile Development Specialist",
     bio: "Creates seamless cross-platform mobile experiences with React Native and Flutter. Focused on performance optimization and offline-first strategies.",
-    image: "https://images.unsplash.com/photo-1618077360395-f3068be8e001?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
@@ -70,7 +70,7 @@ const teamMembers: TeamMember[] = [
     name: "Jamie Rodriguez",
     title: "AI & ML Specialist",
     bio: "Implements cutting-edge machine learning solutions and AI integrations. Experienced in TensorFlow, PyTorch, and natural language processing.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2376&q=80",
+    image: "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -81,7 +81,7 @@ const teamMembers: TeamMember[] = [
     name: "Taylor Kim",
     title: "UX/UI Designer",
     bio: "Combines artistic vision with user-centered design principles to create beautiful, functional interfaces that elevate the user experience.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com"
@@ -92,7 +92,7 @@ const teamMembers: TeamMember[] = [
     name: "Jordan Smith",
     title: "DevOps Engineer",
     bio: "Automation expert who builds and maintains our CI/CD pipelines. Ensures smooth deployments and robust infrastructure across all client projects.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2338&q=80",
+    image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=999&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -130,11 +130,12 @@ export default function Team() {
           <div className="flex flex-col md:flex-row items-center gap-12 animate-item">
             <div className="w-full md:w-1/2">
               <div className="relative group">
-                <div className="w-full h-96 overflow-hidden rounded-xl">
+                <div className="w-full h-96 overflow-hidden rounded-xl flex items-center justify-center bg-[#121820]">
                   <img 
                     src={teamMembers[0].image}
                     alt={teamMembers[0].name}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 team-member-image"
+                    style={{ objectPosition: "50% 15%" }}
                   />
                 </div>
 
@@ -196,11 +197,12 @@ export default function Team() {
                 className="bg-[#0B0C10] rounded-xl overflow-hidden border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 group animate-item"
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               >
-                <div className="h-60 overflow-hidden">
+                <div className="h-60 overflow-hidden flex items-center justify-center bg-[#121820]">
                   <img 
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105 team-member-image"
+                    style={{ objectPosition: "50% 30%" }}
                   />
                 </div>
                 <div className="p-6">
