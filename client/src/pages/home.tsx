@@ -3,31 +3,15 @@ import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Link } from 'wouter';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
+import HealthAppSvg from '@/components/ui/HealthAppSvg';
+import BlockchainSvg from '@/components/ui/BlockchainSvg';
 
-// Base64 encoded placeholder images
-const healthAppImageUrl = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0NUEyOUUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNjZGQ0YxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMUIyNzNBIiAvPjxjaXJjbGUgY3g9IjQwMCIgY3k9IjMwMCIgcj0iMjAwIiBmaWxsPSJ1cmwoI2dyYWQpIiBmaWxsLW9wYWNpdHk9IjAuMiIgLz48cGF0aCBkPSJNMzAwLDIwMCBRNDAwLDEwMCA1MDAsMjAwIFQ3MDAsMzAwIiBzdHJva2U9IiM2NkZDRjEiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgLz48dGV4dCB4PSIyNTAiIHk9IjM1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiI+SGVhbHRoVHJhY2sgQXBwPC90ZXh0Pjwvc3ZnPg==";
-const blockchainImageUrl = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0NUEyOUUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNjZGQ0YxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMUIyNzNBIiAvPjxyZWN0IHg9IjIwMCIgeT0iMjAwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiM2NkZDRjEiIC8+PHJlY3QgeD0iMzIwIiB5PSIyMDAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzY2RkNGMSIgLz48cmVjdCB4PSI0NDAiIHk9IjIwMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjNjZGQ0YxIiAvPjxyZWN0IHg9IjI2MCIgeT0iMzIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiM2NkZDRjEiIC8+PHJlY3QgeD0iMzgwIiB5PSIzMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzY2RkNGMSIgLz48cGF0aCBkPSJNMjQwLDI0MCBMMzYwLDI0MCBMNDgwLDI0MCBMMzAwLDM2MCBMNDIwLDM2MCIgc3Ryb2tlPSIjNjZGQ0YxIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiIC8+PHRleHQgeD0iMjQwIiB5PSI0NTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPkJsb2NrY2hhaW48L3RleHQ+PC9zdmc+";
-
-interface ProjectData {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  techs: string[];
-  testimonial: {
-    quote: string;
-    name: string;
-    role: string;
-    initials: string;
-  };
-}
-
-const portfolioProjects: ProjectData[] = [
+const portfolioProjects = [
   {
     id: 'storefront',
     title: 'StoreFront E-commerce Platform',
     description: 'A comprehensive e-commerce solution with advanced inventory management for StyleHaven Fashion.',
-    image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0NUEyOUUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNjZGQ0YxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMUIyNzNBIiAvPjxyZWN0IHg9IjE1MCIgeT0iMTUwIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzFGMjgzMyIgc3Ryb2tlPSIjNjZGQ0YxIiBzdHJva2Utd2lkdGg9IjIiIC8+PHJlY3QgeD0iMTgwIiB5PSIxODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI2dyYWQpIiBmaWxsLW9wYWNpdHk9IjAuNCIgLz48cmVjdCB4PSIzMDAiIHk9IjE4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9InVybCgjZ3JhZCkiIGZpbGwtb3BhY2l0eT0iMC40IiAvPjxyZWN0IHg9IjQyMCIgeT0iMTgwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNncmFkKSIgZmlsbC1vcGFjaXR5PSIwLjQiIC8+PHJlY3QgeD0iMTgwIiB5PSIzMDAiIHdpZHRoPSI0NDUiIGhlaWdodD0iMTAwIiBmaWxsPSIjNjZGQ0YxIiBmaWxsLW9wYWNpdHk9IjAuMiIgLz48dGV4dCB4PSIxODAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiI+U3RvcmVmcm9udCBFLUNvbW1lcmNlPC90ZXh0PjwvGN2Zz4=",
+    image: 'https://images.unsplash.com/photo-1610552050890-fe99536c2615?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
     techs: ['React', 'Next.js', 'Stripe'],
     testimonial: {
       quote: "BOLDBYTE transformed our retail business with a custom e-commerce platform that increased our online sales by 200%. The StoreFront project they delivered included advanced inventory management and seamless payment processing that exceeded our expectations.",
@@ -40,7 +24,7 @@ const portfolioProjects: ProjectData[] = [
     id: 'ai-hub',
     title: 'AI Customer Service Hub',
     description: 'An AI-powered customer service platform that automates responses and improves efficiency for NexGen Solutions.',
-    image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0NUEyOUUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNjZGQ0YxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMUIyNzNBIiAvPjxwYXRoIGQ9Ik0yMDAsMzAwIEMzMDAsMzAwIDMwMCw0MDAgNDAwLDQwMCBDNTAwLDQwMCA1MDAsMzAwIDYwMCwzMDAiIHN0cm9rZT0iIzY2RkNGMSIgc3Ryb2tlLXdpZHRoPSI4IiBmaWxsPSJub25lIiAvPjxjaXJjbGUgY3g9IjQwMCIgY3k9IjIwMCIgcj0iODAiIGZpbGw9InVybCgjZ3JhZCkiIGZpbGwtb3BhY2l0eT0iMC4yIiAvPjxwYXRoIGQ9Ik0zNTAsMjc1IEM0MDAsMjUwIDQ1MCwyNTAgNTAwLDI3NSBDNDUwLDMwMCA0NTAsMzAwIDQwMCwzMjUgQzM1MCwzMDAgMzUwLDMwMCAzNTAsMjc1IFoiIGZpbGw9IiM2NkZDRjEiIGZpbGwtb3BhY2l0eT0iMC40IiAvPjx0ZXh0IHg9IjI1MCIgeT0iNDUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjZmZmIj5BSSBTRVJWSUNFIFJVQI8L3RleHQ+PC9zdmc+",
+    image: 'https://images.unsplash.com/photo-1535378273068-9bb67d5bac41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600',
     techs: ['Python', 'TensorFlow', 'React'],
     testimonial: {
       quote: "Our AI Customer Service Hub project was a game-changer. BOLDBYTE integrated advanced natural language processing that automated 75% of our support queries, reducing response times by 40% and significantly improving customer satisfaction scores.",
@@ -53,7 +37,7 @@ const portfolioProjects: ProjectData[] = [
     id: 'analytics',
     title: 'SaaS Analytics Dashboard',
     description: 'A real-time data visualization platform for CloudMetrics that transforms complex data into actionable insights.',
-    image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0NUEyOUUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNjZGQ0YxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMUIyNzNBIiAvPjxyZWN0IHg9IjEwMCIgeT0iNDAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzY2RkNGMSIgZmlsbC1vcGFjaXR5PSIwLjUiIC8+PHJlY3QgeD0iMjUwIiB5PSIzMDAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjNjZGQ0YxIiBmaWxsLW9wYWNpdHk9IjAuNyIgLz48cmVjdCB4PSI0MDAiIHk9IjIwMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiM2NkZDRjEiIC8+PHJlY3QgeD0iNTUwIiB5PSIxNTAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMzUwIiBmaWxsPSIjNjZGQ0YxIiBmaWxsLW9wYWNpdHk9IjAuNyIgLz48bGluZSB4MT0iMTAwIiB5MT0iNDUwIiB4Mj0iNjUwIiB5Mj0iMTUwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNCIgLz48dGV4dCB4PSIxNTAiIHk9IjEwMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiI+QW5hbHl0aWNzIERhc2hib2FyZDwvdGV4dD48L3N2Zz4=",
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
     techs: ['Vue.js', 'D3.js', 'Firebase'],
     testimonial: {
       quote: "The SaaS Analytics Dashboard BOLDBYTE built for us completely transformed how we visualize customer data. Their attention to detail in the UX design and the custom reporting features has made our internal processes 65% more efficient.",
@@ -66,7 +50,7 @@ const portfolioProjects: ProjectData[] = [
     id: 'health-app',
     title: 'HealthTrack Pro Mobile App',
     description: 'A cross-platform fitness and health tracking application with real-time monitoring for FitTech Innovations.',
-    image: healthAppImageUrl,
+    image: <HealthAppSvg />,
     techs: ['React Native', 'GraphQL', 'AWS'],
     testimonial: {
       quote: "BOLDBYTE developed our mobile app 'HealthTrack Pro' with cutting-edge fitness tracking integrations. The app's real-time health monitoring features have helped us attract over 50,000 users in just three months after launch.",
@@ -79,7 +63,7 @@ const portfolioProjects: ProjectData[] = [
     id: 'supply-chain',
     title: 'SupplyVerify Blockchain System',
     description: 'A blockchain-based supply chain verification platform that ensures authenticity and transparency for EcoTrack Global.',
-    image: blockchainImageUrl,
+    image: <BlockchainSvg />,
     techs: ['Solidity', 'React', 'Node.js'],
     testimonial: {
       quote: "Working with BOLDBYTE on our blockchain-based supply chain verification system has been exceptional. The solution they developed provides unmatched transparency and has become our competitive advantage in the sustainable products market.",
@@ -368,7 +352,7 @@ export default function Home() {
             {/* Project 1 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
               <img 
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM0NUEyOUUiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNjZGQ0YxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMUIyNzNBIiAvPjxyZWN0IHg9IjE1MCIgeT0iMTUwIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzFGMjgzMyIgc3Ryb2tlPSIjNjZGQ0YxIiBzdHJva2Utd2lkdGg9IjIiIC8+PHJlY3QgeD0iMTgwIiB5PSIxODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI2dyYWQpIiBmaWxsLW9wYWNpdHk9IjAuNCIgLz48cmVjdCB4PSIzMDAiIHk9IjE4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9InVybCgjZ3JhZCkiIGZpbGwtb3BhY2l0eT0iMC40IiAvPjxyZWN0IHg9IjQyMCIgeT0iMTgwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNncmFkKSIgZmlsbC1vcGFjaXR5PSIwLjQiIC8+PHJlY3QgeD0iMTgwIiB5PSIzMDAiIHdpZHRoPSI0NDUiIGhlaWdodD0iMTAwIiBmaWxsPSIjNjZGQ0YxIiBmaWxsLW9wYWNpdHk9IjAuMiIgLz48dGV4dCB4PSIxODAiIHk9IjEzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2ZmZiI+U3RvcmVmcm9udCBFLUNvbW1lcmNlPC90ZXh0Pjwvc3ZnPg==" 
+                src="https://images.unsplash.com/photo-1610552050890-fe99536c2615?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
                 alt="Modern e-commerce website" 
                 className="w-full h-56 object-cover object-top"
               />
@@ -387,11 +371,9 @@ export default function Home() {
 
             {/* Project 2 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src={blockchainImageUrl} 
-                alt="Blockchain system interface" 
-                className="w-full h-56 object-cover"
-              />
+              <div className="w-full h-56 overflow-hidden">
+                <BlockchainSvg className="w-full h-full" />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Blockchain Supply Chain</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
@@ -407,11 +389,9 @@ export default function Home() {
 
             {/* Project 3 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src={healthAppImageUrl} 
-                alt="Health tracking app interface" 
-                className="w-full h-56 object-cover"
-              />
+              <div className="w-full h-56 overflow-hidden">
+                <HealthAppSvg className="w-full h-full" />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">HealthTrack Pro App</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
