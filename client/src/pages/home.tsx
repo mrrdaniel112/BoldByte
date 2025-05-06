@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Link } from 'wouter';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
-import healthAppImage from '../assets/health-app.svg';
-import blockchainImage from '../assets/blockchain.svg';
+import HealthAppSvg from '@/components/ui/HealthAppSvg';
+import BlockchainSvg from '@/components/ui/BlockchainSvg';
 
 const portfolioProjects = [
   {
@@ -50,7 +50,7 @@ const portfolioProjects = [
     id: 'health-app',
     title: 'HealthTrack Pro Mobile App',
     description: 'A cross-platform fitness and health tracking application with real-time monitoring for FitTech Innovations.',
-    image: healthAppImage,
+    image: <HealthAppSvg />,
     techs: ['React Native', 'GraphQL', 'AWS'],
     testimonial: {
       quote: "BOLDBYTE developed our mobile app 'HealthTrack Pro' with cutting-edge fitness tracking integrations. The app's real-time health monitoring features have helped us attract over 50,000 users in just three months after launch.",
@@ -63,7 +63,7 @@ const portfolioProjects = [
     id: 'supply-chain',
     title: 'SupplyVerify Blockchain System',
     description: 'A blockchain-based supply chain verification platform that ensures authenticity and transparency for EcoTrack Global.',
-    image: blockchainImage,
+    image: <BlockchainSvg />,
     techs: ['Solidity', 'React', 'Node.js'],
     testimonial: {
       quote: "Working with BOLDBYTE on our blockchain-based supply chain verification system has been exceptional. The solution they developed provides unmatched transparency and has become our competitive advantage in the sustainable products market.",
@@ -371,11 +371,9 @@ export default function Home() {
 
             {/* Project 2 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src={blockchainImage} 
-                alt="Blockchain system interface" 
-                className="w-full h-56 object-cover"
-              />
+              <div className="w-full h-56 overflow-hidden">
+                <BlockchainSvg className="w-full h-full" />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Blockchain Supply Chain</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
@@ -391,11 +389,9 @@ export default function Home() {
 
             {/* Project 3 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src={healthAppImage} 
-                alt="Mobile app user interface" 
-                className="w-full h-56 object-cover"
-              />
+              <div className="w-full h-56 overflow-hidden">
+                <HealthAppSvg className="w-full h-full" />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">HealthTrack Pro App</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
