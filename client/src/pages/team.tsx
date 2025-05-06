@@ -137,25 +137,7 @@ export default function Team() {
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 bg-[#1F2833]/90 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="flex justify-center gap-4">
-                    {teamMembers[0].social.github && (
-                      <a href={teamMembers[0].social.github} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#66FCF1] transition-colors">
-                        <Icon name="github" className="h-5 w-5" />
-                      </a>
-                    )}
-                    {teamMembers[0].social.linkedin && (
-                      <a href={teamMembers[0].social.linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#66FCF1] transition-colors">
-                        <Icon name="linkedin" className="h-5 w-5" />
-                      </a>
-                    )}
-                    {teamMembers[0].social.twitter && (
-                      <a href={teamMembers[0].social.twitter} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#66FCF1] transition-colors">
-                        <Icon name="twitter" className="h-5 w-5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
+
               </div>
             </div>
             
@@ -169,6 +151,23 @@ export default function Team() {
                 "I founded BOLDBYTE with a mission to build digital products that don't just function, but inspire and stand out. 
                 Our talented team combines technical expertise with creative vision to deliver solutions that exceed client expectations."
               </p>
+              <div className="flex gap-3 mb-6">
+                {teamMembers[0].social.github && (
+                  <a href={teamMembers[0].social.github} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#66FCF1] transition-colors">
+                    <Icon name="github" className="h-6 w-6" />
+                  </a>
+                )}
+                {teamMembers[0].social.linkedin && (
+                  <a href={teamMembers[0].social.linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#66FCF1] transition-colors">
+                    <Icon name="linkedin" className="h-6 w-6" />
+                  </a>
+                )}
+                {teamMembers[0].social.twitter && (
+                  <a href={teamMembers[0].social.twitter} target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#66FCF1] transition-colors">
+                    <Icon name="twitter" className="h-6 w-6" />
+                  </a>
+                )}
+              </div>
               <Button 
                 size="lg" 
                 className="bg-[#66FCF1] text-[#0B0C10] hover:bg-[#45A29E] transition-colors duration-300"
