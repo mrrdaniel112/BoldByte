@@ -62,22 +62,39 @@ const processSteps = [
 
 const testimonials = [
   {
-    quote: "The team delivered our e-commerce site ahead of schedule and exceeded our expectations in terms of design and functionality.",
+    quote: "BOLDBYTE transformed our retail business with a custom e-commerce platform that increased our online sales by 200%. The StoreFront project they delivered included advanced inventory management and seamless payment processing that exceeded our expectations.",
     name: "Jamie Smith",
-    role: "CEO, Fashion Retailer",
+    role: "CEO, StyleHaven Fashion",
+    project: "StoreFront E-commerce Platform",
     initials: "JS"
   },
   {
-    quote: "Their expertise in AI integration helped us automate customer support, resulting in a 40% reduction in response times.",
+    quote: "Our AI Customer Service Hub project was a game-changer. BOLDBYTE integrated advanced natural language processing that automated 75% of our support queries, reducing response times by 40% and significantly improving customer satisfaction scores.",
     name: "Rebecca Liu",
-    role: "CTO, Tech Startup",
+    role: "CTO, NexGen Solutions",
+    project: "AI Customer Service Hub",
     initials: "RL"
   },
   {
-    quote: "Working with this team was refreshing. They took the time to understand our business needs and delivered a solution that perfectly matched our vision.",
+    quote: "The SaaS Analytics Dashboard BOLDBYTE built for us completely transformed how we visualize customer data. Their attention to detail in the UX design and the custom reporting features has made our internal processes 65% more efficient.",
     name: "Michael Johnson",
-    role: "Marketing Director, SaaS Company",
+    role: "Marketing Director, CloudMetrics",
+    project: "SaaS Analytics Dashboard",
     initials: "MJ"
+  },
+  {
+    quote: "BOLDBYTE developed our mobile app 'HealthTrack Pro' with cutting-edge fitness tracking integrations. The app's real-time health monitoring features have helped us attract over 50,000 users in just three months after launch.",
+    name: "Sarah Chen",
+    role: "Product Manager, FitTech Innovations",
+    project: "HealthTrack Pro Mobile App",
+    initials: "SC"
+  },
+  {
+    quote: "Working with BOLDBYTE on our blockchain-based supply chain verification system has been exceptional. The solution they developed provides unmatched transparency and has become our competitive advantage in the sustainable products market.",
+    name: "David Rodriguez",
+    role: "Supply Chain Director, EcoTrack Global",
+    project: "SupplyVerify Blockchain System",
+    initials: "DR"
   }
 ];
 
@@ -278,8 +295,8 @@ export default function Home() {
             <div className="section-divider"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {testimonials.slice(0, 3).map((testimonial, index) => (
               <div 
                 key={index} 
                 className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item"
@@ -290,7 +307,41 @@ export default function Home() {
                     <Icon key={i} name="star" className="h-5 w-5" />
                   ))}
                 </div>
-                <blockquote className="text-[#C5C6C7] mb-6">
+                <div className="mb-3 text-sm font-semibold text-[#66FCF1]">
+                  Project: {testimonial.project}
+                </div>
+                <blockquote className="text-[#C5C6C7] mb-6 text-sm">
+                  "{testimonial.quote}"
+                </blockquote>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-[#0B0C10] flex items-center justify-center text-[#66FCF1] font-bold mr-3">
+                    {testimonial.initials}
+                  </div>
+                  <div>
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-xs text-[#C5C6C7]">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {testimonials.slice(3, 5).map((testimonial, index) => (
+              <div 
+                key={index + 3} 
+                className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item"
+                style={{ animationDelay: `${0.1 * (index + 4)}s` }}
+              >
+                <div className="flex text-[#66FCF1] mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Icon key={i} name="star" className="h-5 w-5" />
+                  ))}
+                </div>
+                <div className="mb-3 text-sm font-semibold text-[#66FCF1]">
+                  Project: {testimonial.project}
+                </div>
+                <blockquote className="text-[#C5C6C7] mb-6 text-sm">
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center">
