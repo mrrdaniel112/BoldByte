@@ -3,18 +3,16 @@ import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Link } from 'wouter';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
-import HealthAppSvg from '@/components/ui/HealthAppSvg';
-import BlockchainSvg from '@/components/ui/BlockchainSvg';
-import ProjectImage from '@/components/ui/ProjectImage';
 
-// Define a type for the project data structure
-type ProjectImage = string | React.ReactNode;
+// Simple URLs for our SVG images
+const healthAppImageUrl = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600";
+const blockchainImageUrl = "https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600";
 
 interface ProjectData {
   id: string;
   title: string;
   description: string;
-  image: ProjectImage;
+  image: string;
   techs: string[];
   testimonial: {
     quote: string;
@@ -68,7 +66,7 @@ const portfolioProjects: ProjectData[] = [
     id: 'health-app',
     title: 'HealthTrack Pro Mobile App',
     description: 'A cross-platform fitness and health tracking application with real-time monitoring for FitTech Innovations.',
-    image: <HealthAppSvg />,
+    image: healthAppImageUrl,
     techs: ['React Native', 'GraphQL', 'AWS'],
     testimonial: {
       quote: "BOLDBYTE developed our mobile app 'HealthTrack Pro' with cutting-edge fitness tracking integrations. The app's real-time health monitoring features have helped us attract over 50,000 users in just three months after launch.",
@@ -81,7 +79,7 @@ const portfolioProjects: ProjectData[] = [
     id: 'supply-chain',
     title: 'SupplyVerify Blockchain System',
     description: 'A blockchain-based supply chain verification platform that ensures authenticity and transparency for EcoTrack Global.',
-    image: <BlockchainSvg />,
+    image: blockchainImageUrl,
     techs: ['Solidity', 'React', 'Node.js'],
     testimonial: {
       quote: "Working with BOLDBYTE on our blockchain-based supply chain verification system has been exceptional. The solution they developed provides unmatched transparency and has become our competitive advantage in the sustainable products market.",
@@ -389,9 +387,11 @@ export default function Home() {
 
             {/* Project 2 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <div className="w-full h-56 overflow-hidden">
-                <BlockchainSvg className="w-full h-full" />
-              </div>
+              <img 
+                src={blockchainImageUrl} 
+                alt="Blockchain system interface" 
+                className="w-full h-56 object-cover"
+              />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Blockchain Supply Chain</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
@@ -407,9 +407,11 @@ export default function Home() {
 
             {/* Project 3 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <div className="w-full h-56 overflow-hidden">
-                <HealthAppSvg className="w-full h-full" />
-              </div>
+              <img 
+                src={healthAppImageUrl} 
+                alt="Health tracking app interface" 
+                className="w-full h-56 object-cover"
+              />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">HealthTrack Pro App</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
