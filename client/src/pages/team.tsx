@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     name: "Sarah Chen",
     title: "Backend Lead",
     bio: "Specialized in building scalable server architectures and optimizing database performance. Experienced with Node.js, Python, and cloud infrastructure.",
-    image: "https://images.unsplash.com/photo-1601412436009-d964bd02edbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
+    image: "https://images.unsplash.com/photo-1601931935821-5fbe71157695?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -92,7 +92,7 @@ const teamMembers: TeamMember[] = [
     name: "Jordan Smith",
     title: "DevOps Engineer",
     bio: "Automation expert who builds and maintains our CI/CD pipelines. Ensures smooth deployments and robust infrastructure across all client projects.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
