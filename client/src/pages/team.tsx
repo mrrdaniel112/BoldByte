@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     name: "Alex Morgan",
     title: "Frontend Lead",
     bio: "Expert in React and modern UI frameworks. Passionate about creating intuitive user experiences with a keen eye for design and detail.",
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    image: "https://images.unsplash.com/photo-1619895862022-09114b41f16f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
