@@ -50,7 +50,7 @@ const portfolioProjects: Project[] = [
     id: 'storefront',
     title: 'StoreFront E-commerce Platform',
     description: 'A comprehensive e-commerce solution with advanced inventory management for StyleHaven Fashion.',
-    image: <EcommerceSvg />,
+    image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
     techs: ['React', 'Next.js', 'Stripe'],
     testimonial: {
       quote: "BOLDBYTE transformed our retail business with a custom e-commerce platform that increased our online sales by 200%. The StoreFront project they delivered included advanced inventory management and seamless payment processing that exceeded our expectations.",
@@ -63,7 +63,7 @@ const portfolioProjects: Project[] = [
     id: 'ai-hub',
     title: 'AI Customer Service Hub',
     description: 'An AI-powered customer service platform that automates responses and improves efficiency for NexGen Solutions.',
-    image: <AiServiceSvg />,
+    image: "https://images.unsplash.com/photo-1677442135046-8dd4f693c03a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80",
     techs: ['Python', 'TensorFlow', 'React'],
     testimonial: {
       quote: "Our AI Customer Service Hub project was a game-changer. BOLDBYTE integrated advanced natural language processing that automated 75% of our support queries, reducing response times by 40% and significantly improving customer satisfaction scores.",
@@ -76,7 +76,7 @@ const portfolioProjects: Project[] = [
     id: 'analytics',
     title: 'SaaS Analytics Dashboard',
     description: 'A real-time data visualization platform for CloudMetrics that transforms complex data into actionable insights.',
-    image: <AnalyticsSvg />,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
     techs: ['Vue.js', 'D3.js', 'Firebase'],
     testimonial: {
       quote: "The SaaS Analytics Dashboard BOLDBYTE built for us completely transformed how we visualize customer data. Their attention to detail in the UX design and the custom reporting features has made our internal processes 65% more efficient.",
@@ -89,7 +89,7 @@ const portfolioProjects: Project[] = [
     id: 'health-app',
     title: 'HealthTrack Pro Mobile App',
     description: 'A cross-platform fitness and health tracking application with real-time monitoring for FitTech Innovations.',
-    image: <HealthAppSvg />,
+    image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
     techs: ['React Native', 'GraphQL', 'AWS'],
     testimonial: {
       quote: "BOLDBYTE developed our mobile app 'HealthTrack Pro' with cutting-edge fitness tracking integrations. The app's real-time health monitoring features have helped us attract over 50,000 users in just three months after launch.",
@@ -102,7 +102,7 @@ const portfolioProjects: Project[] = [
     id: 'supply-chain',
     title: 'SupplyVerify Blockchain System',
     description: 'A blockchain-based supply chain verification platform that ensures authenticity and transparency for EcoTrack Global.',
-    image: <BlockchainSvg />,
+    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80",
     techs: ['Solidity', 'React', 'Node.js'],
     testimonial: {
       quote: "Working with BOLDBYTE on our blockchain-based supply chain verification system has been exceptional. The solution they developed provides unmatched transparency and has become our competitive advantage in the sustainable products market.",
@@ -382,9 +382,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Project 1 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <div className="w-full h-56 overflow-hidden">
-                <EcommerceSvg className="w-full h-full" />
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
+                alt="Modern E-commerce" 
+                className="w-full h-56 object-cover object-center"
+              />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Modern E-commerce</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
@@ -400,9 +402,11 @@ export default function Home() {
 
             {/* Project 2 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <div className="w-full h-56 overflow-hidden">
-                <BlockchainSvg className="w-full h-full" />
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80" 
+                alt="Blockchain Supply Chain" 
+                className="w-full h-56 object-cover object-center"
+              />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Blockchain Supply Chain</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
@@ -418,9 +422,11 @@ export default function Home() {
 
             {/* Project 3 */}
             <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <div className="w-full h-56 overflow-hidden">
-                <HealthAppSvg className="w-full h-full" />
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
+                alt="HealthTrack Pro App" 
+                className="w-full h-56 object-cover object-center"
+              />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">HealthTrack Pro App</h3>
                 <p className="text-[#C5C6C7] text-sm mb-4">
