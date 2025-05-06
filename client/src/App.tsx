@@ -10,6 +10,7 @@ import Home from "@/pages/home";
 import Work from "@/pages/work";
 import Book from "@/pages/book";
 import Success from "@/pages/success";
+import Team from "@/pages/team";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/work" component={Work} />
+          <Route path="/team" component={Team} />
           <Route path="/book" component={Book} />
           <Route path="/success" component={Success} />
           <Route component={NotFound} />

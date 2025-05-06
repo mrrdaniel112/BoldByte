@@ -78,6 +78,7 @@ export default function Navbar() {
               Portfolio
             </button>
             <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
+            <NavLink href="/team" label="Team" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
           
@@ -138,6 +139,7 @@ export default function Navbar() {
               Portfolio
             </button>
             <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
+            <NavLink href="/team" label="Team" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
         </div>
