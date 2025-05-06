@@ -74,7 +74,7 @@ export default function Work() {
   useAnimateOnScroll('.animate-item');
 
   useEffect(() => {
-    document.title = "Our Work | BOLDDEV";
+    document.title = "Our Work | BOLDBYTE";
   }, []);
 
   return (

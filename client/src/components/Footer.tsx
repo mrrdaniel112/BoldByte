@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link href="/" className="text-2xl font-bold mb-4 inline-block">
               <span className="text-white">BOLD</span>
-              <span className="text-[#66FCF1]">DEV</span>
+              <span className="text-[#66FCF1]">BYTE</span>
             </Link>
             <p className="text-[#C5C6C7] mb-6 max-w-md">
               We design and develop custom websites, web applications, and mobile apps that help businesses grow.
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-[#C5C6C7] text-sm">© {new Date().getFullYear()} BOLDDEV. All rights reserved.</p>
+          <p className="text-[#C5C6C7] text-sm">© {new Date().getFullYear()} BOLDBYTE. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="text-[#C5C6C7] hover:text-[#66FCF1] text-sm transition-colors duration-200">
               Privacy Policy

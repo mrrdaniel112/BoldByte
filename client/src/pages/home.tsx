@@ -85,7 +85,7 @@ export default function Home() {
   useAnimateOnScroll('.animate-item');
 
   useEffect(() => {
-    document.title = "BOLDDEV | Web & App Development Services";
+    document.title = "BOLDBYTE | Web & App Development Services";
   }, []);
 
   return (

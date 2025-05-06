@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-2xl font-bold">
             <span className="text-white">BOLD</span>
-            <span className="text-[#66FCF1]">DEV</span>
+            <span className="text-[#66FCF1]">BYTE</span>
           </Link>
           
           <div className="hidden md:flex space-x-8">
