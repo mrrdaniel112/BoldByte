@@ -130,7 +130,7 @@ export default function Team() {
           <div className="flex flex-col md:flex-row items-center gap-12 animate-item">
             <div className="w-full md:w-1/2">
               <div className="relative group">
-                <div className="w-full h-96 overflow-hidden rounded-xl flex items-center justify-center bg-[#121820]">
+                <div className="w-full h-96 overflow-hidden rounded-xl flex items-center justify-center bg-[#121820] team-member-image-container">
                   <img 
                     src={teamMembers[0].image}
                     alt={teamMembers[0].name}
@@ -197,7 +197,7 @@ export default function Team() {
                 className="bg-[#0B0C10] rounded-xl overflow-hidden border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 group animate-item"
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               >
-                <div className="h-60 overflow-hidden flex items-center justify-center bg-[#121820]">
+                <div className="h-60 overflow-hidden flex items-center justify-center bg-[#121820] team-member-image-container">
                   <img 
                     src={member.image}
                     alt={member.name}
