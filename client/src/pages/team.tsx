@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
     name: "Alex Morgan",
     title: "Frontend Lead",
     bio: "Expert in React and modern UI frameworks. Passionate about creating intuitive user experiences with a keen eye for design and detail.",
-    image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     name: "Sarah Chen",
     title: "Backend Lead",
     bio: "Specialized in building scalable server architectures and optimizing database performance. Experienced with Node.js, Python, and cloud infrastructure.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1287&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
     name: "Michael Patel",
     title: "Mobile Development Specialist",
     bio: "Creates seamless cross-platform mobile experiences with React Native and Flutter. Focused on performance optimization and offline-first strategies.",
-    image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=1287&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
@@ -70,7 +70,7 @@ const teamMembers: TeamMember[] = [
     name: "Jamie Rodriguez",
     title: "AI & ML Specialist",
     bio: "Implements cutting-edge machine learning solutions and AI integrations. Experienced in TensorFlow, PyTorch, and natural language processing.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1287&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=922&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -81,7 +81,7 @@ const teamMembers: TeamMember[] = [
     name: "Taylor Kim",
     title: "UX/UI Designer",
     bio: "Combines artistic vision with user-centered design principles to create beautiful, functional interfaces that elevate the user experience.",
-    image: "https://images.unsplash.com/photo-1619895862022-09114b41f16f?q=80&w=1170&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com"
@@ -92,7 +92,7 @@ const teamMembers: TeamMember[] = [
     name: "Jordan Smith",
     title: "DevOps Engineer",
     bio: "Automation expert who builds and maintains our CI/CD pipelines. Ensures smooth deployments and robust infrastructure across all client projects.",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com"
@@ -134,8 +134,8 @@ export default function Team() {
                   <img 
                     src={teamMembers[0].image}
                     alt={teamMembers[0].name}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-102 team-member-image"
-                    style={{ padding: "10px" }}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 team-member-image"
+                    style={{ objectPosition: "50% 15%" }}
                   />
                 </div>
 
@@ -201,8 +201,8 @@ export default function Team() {
                   <img 
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-102 team-member-image"
-                    style={{ padding: "10px" }}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105 team-member-image"
+                    style={{ objectPosition: "50% 30%" }}
                   />
                 </div>
                 <div className="p-6">
