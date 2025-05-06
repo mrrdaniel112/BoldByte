@@ -5,8 +5,26 @@ import { Link } from 'wouter';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
 import HealthAppSvg from '@/components/ui/HealthAppSvg';
 import BlockchainSvg from '@/components/ui/BlockchainSvg';
+import ProjectImage from '@/components/ui/ProjectImage';
 
-const portfolioProjects = [
+// Define a type for the project data structure
+type ProjectImage = string | React.ReactNode;
+
+interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  image: ProjectImage;
+  techs: string[];
+  testimonial: {
+    quote: string;
+    name: string;
+    role: string;
+    initials: string;
+  };
+}
+
+const portfolioProjects: ProjectData[] = [
   {
     id: 'storefront',
     title: 'StoreFront E-commerce Platform',
