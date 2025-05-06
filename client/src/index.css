@@ -150,7 +150,7 @@
 
 /* Team member images */
 .team-member-image {
-  filter: grayscale(25%) contrast(100%) brightness(95%) saturate(95%);
+  filter: grayscale(0%) contrast(100%) brightness(100%) saturate(100%);
   transition: filter 0.3s ease;
   background-color: #ffffff; /* White background */
 }
@@ -161,5 +161,9 @@
 }
 
 .group:hover .team-member-image {
-  filter: grayscale(5%) contrast(100%) brightness(100%) saturate(100%);
+  filter: grayscale(0%) contrast(105%) brightness(105%) saturate(105%);
+}
+
+.filter-none {
+  filter: none !important;
 }

@@ -134,7 +134,7 @@ export default function Team() {
                   <img 
                     src={teamMembers[0].image}
                     alt={teamMembers[0].name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 team-member-image"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 team-member-image filter-none"
                     style={{ objectPosition: "50% 15%" }}
                   />
                 </div>
@@ -201,7 +201,7 @@ export default function Team() {
                   <img 
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105 team-member-image"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105 team-member-image filter-none"
                     style={{ objectPosition: "50% 30%" }}
                   />
                 </div>
