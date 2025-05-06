@@ -4,36 +4,71 @@ import { Icon } from '@/components/ui/icon';
 import { Link } from 'wouter';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
 
-const services = [
+const portfolioProjects = [
   {
-    icon: 'code-2',
-    title: 'Custom Websites',
-    description: 'Stunning websites with responsive design, optimized for all devices and search engines.',
+    id: 'storefront',
+    title: 'StoreFront E-commerce Platform',
+    description: 'A comprehensive e-commerce solution with advanced inventory management for StyleHaven Fashion.',
+    image: 'https://images.unsplash.com/photo-1610552050890-fe99536c2615?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    techs: ['React', 'Next.js', 'Stripe'],
+    testimonial: {
+      quote: "BOLDBYTE transformed our retail business with a custom e-commerce platform that increased our online sales by 200%. The StoreFront project they delivered included advanced inventory management and seamless payment processing that exceeded our expectations.",
+      name: "Jamie Smith",
+      role: "CEO, StyleHaven Fashion",
+      initials: "JS"
+    }
   },
   {
-    icon: 'smartphone',
-    title: 'Web & Mobile Apps',
-    description: 'Powerful applications built with modern frameworks that deliver exceptional user experiences.',
+    id: 'ai-hub',
+    title: 'AI Customer Service Hub',
+    description: 'An AI-powered customer service platform that automates responses and improves efficiency for NexGen Solutions.',
+    image: 'https://images.unsplash.com/photo-1535378273068-9bb67d5bac41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600',
+    techs: ['Python', 'TensorFlow', 'React'],
+    testimonial: {
+      quote: "Our AI Customer Service Hub project was a game-changer. BOLDBYTE integrated advanced natural language processing that automated 75% of our support queries, reducing response times by 40% and significantly improving customer satisfaction scores.",
+      name: "Rebecca Liu",
+      role: "CTO, NexGen Solutions",
+      initials: "RL"
+    }
   },
   {
-    icon: 'brain-circuit',
-    title: 'AI-Driven Platforms',
-    description: 'Cutting-edge solutions that leverage artificial intelligence to solve complex problems.',
+    id: 'analytics',
+    title: 'SaaS Analytics Dashboard',
+    description: 'A real-time data visualization platform for CloudMetrics that transforms complex data into actionable insights.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    techs: ['Vue.js', 'D3.js', 'Firebase'],
+    testimonial: {
+      quote: "The SaaS Analytics Dashboard BOLDBYTE built for us completely transformed how we visualize customer data. Their attention to detail in the UX design and the custom reporting features has made our internal processes 65% more efficient.",
+      name: "Michael Johnson",
+      role: "Marketing Director, CloudMetrics",
+      initials: "MJ"
+    }
   },
   {
-    icon: 'shopping-bag',
-    title: 'E-Commerce Solutions',
-    description: 'Complete online stores with secure payment processing and inventory management.',
+    id: 'health-app',
+    title: 'HealthTrack Pro Mobile App',
+    description: 'A cross-platform fitness and health tracking application with real-time monitoring for FitTech Innovations.',
+    image: 'https://pixabay.com/get/g7f037d6700f7d39b14559d21add9998ad50e5dfc38787ed5dcbb2d1fa4008417bd6f91c3b6052d5fd7c2d2330dd86e5bfffe26113bddc25ee89c0126f37df0c2_1280.jpg',
+    techs: ['React Native', 'GraphQL', 'AWS'],
+    testimonial: {
+      quote: "BOLDBYTE developed our mobile app 'HealthTrack Pro' with cutting-edge fitness tracking integrations. The app's real-time health monitoring features have helped us attract over 50,000 users in just three months after launch.",
+      name: "Sarah Chen",
+      role: "Product Manager, FitTech Innovations",
+      initials: "SC"
+    }
   },
   {
-    icon: 'layout-dashboard',
-    title: 'Custom Dashboards',
-    description: 'Data visualization and management tools that make complex information accessible.',
-  },
-  {
-    icon: 'mouse-pointer-click',
-    title: 'UI/UX Design',
-    description: 'User-centered design processes that create intuitive and engaging digital experiences.',
+    id: 'supply-chain',
+    title: 'SupplyVerify Blockchain System',
+    description: 'A blockchain-based supply chain verification platform that ensures authenticity and transparency for EcoTrack Global.',
+    image: 'https://images.unsplash.com/photo-1642516303080-760662254d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600',
+    techs: ['Solidity', 'React', 'Node.js'],
+    testimonial: {
+      quote: "Working with BOLDBYTE on our blockchain-based supply chain verification system has been exceptional. The solution they developed provides unmatched transparency and has become our competitive advantage in the sustainable products market.",
+      name: "David Rodriguez",
+      role: "Supply Chain Director, EcoTrack Global",
+      initials: "DR"
+    }
   }
 ];
 
@@ -133,17 +168,17 @@ export default function Home() {
           </div>
         </div>
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-item opacity-0 fade-up delay-4">
-          <a href="#services" className="inline-block animate-bounce">
+          <a href="#portfolio" className="inline-block animate-bounce">
             <Icon name="chevrons-down" className="text-2xl text-[#66FCF1]" />
           </a>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 px-6 bg-[#1F2833]">
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-20 px-6 bg-[#1F2833]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-item">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Build</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Client Projects</h2>
             <div className="section-divider"></div>
             <p className="text-[#C5C6C7] mt-6 max-w-2xl mx-auto">
               We specialize in creating digital experiences that are both visually stunning and highly functional.
@@ -151,19 +186,79 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {portfolioProjects.slice(0, 3).map((project, index) => (
               <div 
                 key={index}
-                className="bg-[#0B0C10] border border-gray-800 rounded-xl p-8 transition-all duration-300 hover:border-[#66FCF1] group animate-item"
+                className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
                 style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               >
-                <div className="text-[#66FCF1] text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon name={service.icon} className="h-8 w-8" />
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-48 object-cover object-center"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                  <p className="text-[#C5C6C7] text-sm mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.techs.map((tech, techIndex) => (
+                      <span key={techIndex} className="text-xs bg-[#1F2833] px-2 py-1 rounded">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full mt-2 border-[#66FCF1] text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0B0C10]"
+                    asChild
+                  >
+                    <Link href={`#${project.id}-testimonial`}>
+                      Client Testimonial
+                    </Link>
+                  </Button>
                 </div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-[#C5C6C7]">
-                  {service.description}
-                </p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {portfolioProjects.slice(3, 5).map((project, index) => (
+              <div 
+                key={index + 3}
+                className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
+                style={{ animationDelay: `${0.1 * (index + 4)}s` }}
+              >
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-48 object-cover object-center"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                  <p className="text-[#C5C6C7] text-sm mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.techs.map((tech, techIndex) => (
+                      <span key={techIndex} className="text-xs bg-[#1F2833] px-2 py-1 rounded">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full mt-2 border-[#66FCF1] text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0B0C10]"
+                    asChild
+                  >
+                    <Link href={`#${project.id}-testimonial`}>
+                      Client Testimonial
+                    </Link>
+                  </Button>
+                </div>
               </div>
             ))}
           </div>

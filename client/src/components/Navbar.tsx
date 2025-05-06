@@ -36,7 +36,7 @@ export default function Navbar() {
           
           <div className="hidden md:flex space-x-8">
             <NavLink href="/" label="Home" currentPath={location} onClick={closeMenu} />
-            <NavLink href="/#services" label="Services" currentPath={location} onClick={closeMenu} />
+            <NavLink href="/#portfolio" label="Portfolio" currentPath={location} onClick={closeMenu} />
             <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className="md:hidden bg-[#1F2833] px-6 py-4 border-b border-gray-800">
           <div className="flex flex-col space-y-4">
             <NavLink href="/" label="Home" currentPath={location} onClick={closeMenu} />
-            <NavLink href="/#services" label="Services" currentPath={location} onClick={closeMenu} />
+            <NavLink href="/#portfolio" label="Portfolio" currentPath={location} onClick={closeMenu} />
             <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
