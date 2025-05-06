@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Link } from 'wouter';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
+import healthAppImage from '../assets/health-app.svg';
+import blockchainImage from '../assets/blockchain.svg';
 
 const portfolioProjects = [
   {
@@ -48,7 +50,7 @@ const portfolioProjects = [
     id: 'health-app',
     title: 'HealthTrack Pro Mobile App',
     description: 'A cross-platform fitness and health tracking application with real-time monitoring for FitTech Innovations.',
-    image: 'https://pixabay.com/get/g7f037d6700f7d39b14559d21add9998ad50e5dfc38787ed5dcbb2d1fa4008417bd6f91c3b6052d5fd7c2d2330dd86e5bfffe26113bddc25ee89c0126f37df0c2_1280.jpg',
+    image: healthAppImage,
     techs: ['React Native', 'GraphQL', 'AWS'],
     testimonial: {
       quote: "BOLDBYTE developed our mobile app 'HealthTrack Pro' with cutting-edge fitness tracking integrations. The app's real-time health monitoring features have helped us attract over 50,000 users in just three months after launch.",
@@ -61,7 +63,7 @@ const portfolioProjects = [
     id: 'supply-chain',
     title: 'SupplyVerify Blockchain System',
     description: 'A blockchain-based supply chain verification platform that ensures authenticity and transparency for EcoTrack Global.',
-    image: 'https://images.unsplash.com/photo-1642516303080-760662254d68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600',
+    image: blockchainImage,
     techs: ['Solidity', 'React', 'Node.js'],
     testimonial: {
       quote: "Working with BOLDBYTE on our blockchain-based supply chain verification system has been exceptional. The solution they developed provides unmatched transparency and has become our competitive advantage in the sustainable products market.",
@@ -135,7 +137,8 @@ const testimonials = [
 
 export default function Home() {
   useAnimateOnScroll('.animate-item');
-
+  const [activeTestimonial, setActiveTestimonial] = useState<string | null>(null);
+  
   // Function to handle scrolling to testimonial
   const scrollToTestimonial = (projectId: string) => {
     const elementId = `${projectId}-testimonial`;
