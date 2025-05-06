@@ -5,7 +5,7 @@ import { Icon } from '@/components/ui/icon';
 
 export default function Success() {
   useEffect(() => {
-    document.title = "Submission Successful | BOLDDEV";
+    document.title = "Submission Successful | BOLDBYTE";
   }, []);
 
   return (

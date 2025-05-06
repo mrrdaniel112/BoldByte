@@ -29,7 +29,7 @@ export default function Book() {
   useAnimateOnScroll('.animate-item');
 
   useEffect(() => {
-    document.title = "Book a Project | BOLDDEV";
+    document.title = "Book a Project | BOLDBYTE";
   }, []);
 
   const form = useForm<FormValues>({
@@ -79,7 +79,7 @@ export default function Book() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email Us</h3>
-                    <p className="text-[#C5C6C7]">hello@bolddev.com</p>
+                    <p className="text-[#C5C6C7]">hello@boldbyte.com</p>
                   </div>
                 </div>
                 
