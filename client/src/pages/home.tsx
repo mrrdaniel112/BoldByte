@@ -5,13 +5,16 @@ import { Link } from 'wouter';
 import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
 import HealthAppSvg from '@/components/ui/HealthAppSvg';
 import BlockchainSvg from '@/components/ui/BlockchainSvg';
+import EcommerceSvg from '@/components/ui/EcommerceSvg';
+import AiServiceSvg from '@/components/ui/AiServiceSvg';
+import AnalyticsSvg from '@/components/ui/AnalyticsSvg';
 
 const portfolioProjects = [
   {
     id: 'storefront',
     title: 'StoreFront E-commerce Platform',
     description: 'A comprehensive e-commerce solution with advanced inventory management for StyleHaven Fashion.',
-    image: 'https://images.unsplash.com/photo-1610552050890-fe99536c2615?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    image: <EcommerceSvg />,
     techs: ['React', 'Next.js', 'Stripe'],
     testimonial: {
       quote: "BOLDBYTE transformed our retail business with a custom e-commerce platform that increased our online sales by 200%. The StoreFront project they delivered included advanced inventory management and seamless payment processing that exceeded our expectations.",
@@ -24,7 +27,7 @@ const portfolioProjects = [
     id: 'ai-hub',
     title: 'AI Customer Service Hub',
     description: 'An AI-powered customer service platform that automates responses and improves efficiency for NexGen Solutions.',
-    image: 'https://images.unsplash.com/photo-1535378273068-9bb67d5bac41?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600',
+    image: <AiServiceSvg />,
     techs: ['Python', 'TensorFlow', 'React'],
     testimonial: {
       quote: "Our AI Customer Service Hub project was a game-changer. BOLDBYTE integrated advanced natural language processing that automated 75% of our support queries, reducing response times by 40% and significantly improving customer satisfaction scores.",
@@ -37,7 +40,7 @@ const portfolioProjects = [
     id: 'analytics',
     title: 'SaaS Analytics Dashboard',
     description: 'A real-time data visualization platform for CloudMetrics that transforms complex data into actionable insights.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    image: <AnalyticsSvg />,
     techs: ['Vue.js', 'D3.js', 'Firebase'],
     testimonial: {
       quote: "The SaaS Analytics Dashboard BOLDBYTE built for us completely transformed how we visualize customer data. Their attention to detail in the UX design and the custom reporting features has made our internal processes 65% more efficient.",
