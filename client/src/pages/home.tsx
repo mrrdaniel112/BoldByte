@@ -232,8 +232,12 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-radial"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="animate-item opacity-0 fade-up">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">We Build <span className="text-[#66FCF1]">Bold</span></h1>
+          <div className="animate-item hero-title-container">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 hero-title">
+              <span className="inline-block pop-in" style={{ animationDelay: '0.3s' }}>We</span>
+              <span className="inline-block pop-in mx-3" style={{ animationDelay: '0.6s' }}>Build</span>
+              <span className="text-[#66FCF1] hero-bold hero-title-glow" style={{ animationDelay: '0.9s' }}>Bold</span>
+            </h1>
           </div>
           <div className="animate-item opacity-0 fade-up delay-1">
             <p className="text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto mb-8 text-[#C5C6C7]">
