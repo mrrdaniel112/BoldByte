@@ -1,0 +1,58 @@
+import { Button } from "@/components/ui/button";
+
+export default function LandingPage() {
+  return (
+    <div className="min-h-screen bg-[#0B0C10] text-white">
+      {/* HERO */}
+      <section className="h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">We Build Bold</h1>
+        <p className="text-lg md:text-xl max-w-2xl mb-6">
+          Websites. Web apps. Mobile apps. AI solutions. Designed to impress, built to perform.
+        </p>
+        <Button className="text-lg px-6 py-4 rounded-xl">
+          <a href="#book">Book a Project</a>
+        </Button>
+      </section>
+
+      {/* WHAT WE BUILD */}
+      <section className="py-20 px-6 bg-[#1F1F1F] text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-12">What We Build</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {["Custom Websites", "Web & Mobile Apps", "AI-Driven Platforms"].map((title) => (
+            <div key={title} className="bg-[#2A2A2A] p-6 rounded-2xl shadow-lg">
+              <h3 className="text-xl font-bold mb-2">{title}</h3>
+              <p className="text-sm text-gray-400">
+                Clean design. Fast delivery. Fully responsive.
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* BOOKING */}
+      <section id="book" className="py-20 px-6 bg-[#0B0C10] text-center">
+        <h2 className="text-3xl font-semibold mb-6">Let’s Build Something Bold</h2>
+        <p className="text-gray-400 mb-8">
+          Send us your idea and we’ll handle the rest.
+        </p>
+        <form className="max-w-xl mx-auto grid gap-4">
+          <input
+            type="text"
+            placeholder="Your name"
+            className="p-4 rounded-md bg-[#1F1F1F] text-white border border-gray-700"
+          />
+          <input
+            type="email"
+            placeholder="Your email"
+            className="p-4 rounded-md bg-[#1F1F1F] text-white border border-gray-700"
+          />
+          <textarea
+            placeholder="Tell us about your project"
+            className="p-4 rounded-md bg-[#1F1F1F] text-white border border-gray-700 h-32"
+          />
+          <Button className="w-full py-4 text-lg">Submit Request</Button>
+        </form>
+      </section>
+    </div>
+  );
+}
