@@ -18,7 +18,7 @@ export default function Footer() {
               <SocialLink href="#" icon="twitter-icon" label="Twitter" />
               <SocialLink href="#" icon="linkedin-icon" label="LinkedIn" />
               <SocialLink href="#" icon="github-icon" label="GitHub" />
-              <SocialLink href="#" icon="instagram-icon" label="Instagram" />
+              <SocialLink href="https://instagram.com/boldbyte.studio" icon="instagram-icon" label="Instagram" />
             </div>
           </div>
           

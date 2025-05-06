@@ -85,6 +85,20 @@ export default function Book() {
                 
                 <div className="flex items-start">
                   <div className="text-[#66FCF1] text-xl mr-4 mt-1">
+                    <Icon name="instagram" className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Instagram</h3>
+                    <p className="text-[#C5C6C7]">
+                      <a href="https://instagram.com/boldbyte.studio" className="hover:text-[#66FCF1] transition-colors">
+                        @boldbyte.studio
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="text-[#66FCF1] text-xl mr-4 mt-1">
                     <Icon name="map-pin" className="h-5 w-5" />
                   </div>
                   <div>
