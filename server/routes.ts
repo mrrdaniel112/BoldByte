@@ -28,13 +28,50 @@ export async function registerRoutes(app: Express): Promise<Server> {
         budget: formData.budget
       });
       
-      // Instead of sending email, return maintenance message
-      // The data is still validated and logged, but we don't try to send via SendGrid
-      res.status(200).json({ 
-        success: true, 
-        maintenance: true,
-        message: "Thank you for your submission! Our email service is currently under maintenance. We will contact you soon."
+      // Create email content
+      const emailHtml = `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${formData.name}</p>
+        <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Project Type:</strong> ${formData.projectType}</p>
+        <p><strong>Budget Range:</strong> ${formData.budget}</p>
+        <p><strong>Message:</strong></p>
+        <p>${formData.message.replace(/\n/g, '<br>')}</p>
+      `;
+      
+      const emailText = `
+        New Contact Form Submission
+        
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Project Type: ${formData.projectType}
+        Budget Range: ${formData.budget}
+        
+        Message:
+        ${formData.message}
+      `;
+      
+      // Send the email using SendGrid
+      const emailSent = await sendEmail({
+        to: 'danielgolda@live.com', // Send to the owner's email
+        subject: `New Project Inquiry from ${formData.name}`,
+        html: emailHtml,
+        text: emailText,
       });
+      
+      if (emailSent) {
+        res.status(200).json({ 
+          success: true, 
+          message: 'Thank you for your submission! We will contact you within 24 hours.'
+        });
+      } else {
+        // If SendGrid fails, still tell the user their form was received
+        res.status(200).json({ 
+          success: true, 
+          maintenance: true,
+          message: "Thank you for your submission! Our email system is experiencing issues, but we've received your information and will contact you soon."
+        });
+      }
       
     } catch (error) {
       console.error('Error processing contact form:', error);
@@ -51,11 +88,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Return a generic error that doesn't mention email specifically
+      // Return a generic error
       res.status(500).json({ 
         success: false, 
-        maintenance: true,
-        message: 'Our contact system is currently under maintenance. Please try again later or email us directly at boldbyte.studio@gmail.com.'
+        message: 'There was a problem processing your request. Please try again later or email us directly at boldbyte.studio@gmail.com.'
       });
     }
   });
