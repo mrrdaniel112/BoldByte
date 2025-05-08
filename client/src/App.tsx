@@ -7,7 +7,6 @@ import NotFound from "@/pages/not-found";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Home from "@/pages/home";
-import Work from "@/pages/work";
 import Book from "@/pages/book";
 import Success from "@/pages/success";
 import Team from "@/pages/team";
@@ -21,7 +20,6 @@ function Router() {
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={Home} />
-          <Route path="/work" component={Work} />
           <Route path="/team" component={Team} />
           <Route path="/book" component={Book} />
           <Route path="/success" component={Success} />

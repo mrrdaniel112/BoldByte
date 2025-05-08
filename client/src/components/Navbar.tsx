@@ -8,6 +8,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [location] = useLocation();
   const [portfolioActive, setPortfolioActive] = useState(false);
+  const [clientProjectsActive, setClientProjectsActive] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -31,6 +32,21 @@ export default function Navbar() {
           setPortfolioActive(true);
         } else {
           setPortfolioActive(false);
+        }
+      }
+      
+      // Check if we're in the client projects section
+      if (location === '/' && document.getElementById('client-projects')) {
+        const clientProjectsSection = document.getElementById('client-projects');
+        const clientProjectsRect = clientProjectsSection?.getBoundingClientRect();
+        
+        // If client projects section is in view (with some padding for usability)
+        if (clientProjectsRect && 
+            clientProjectsRect.top <= 100 && 
+            clientProjectsRect.bottom >= 0) {
+          setClientProjectsActive(true);
+        } else {
+          setClientProjectsActive(false);
         }
       }
     };
@@ -77,7 +93,31 @@ export default function Navbar() {
             >
               Portfolio
             </button>
-            <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
+            <button 
+              className={`transition-colors duration-200 ${
+                clientProjectsActive ? 'text-[#66FCF1]' : 'text-white hover:text-[#66FCF1]'
+              }`}
+              onClick={() => {
+                closeMenu();
+                // Find the client projects section and scroll to it
+                const clientProjectsSection = document.getElementById('client-projects');
+                if (clientProjectsSection) {
+                  const headerOffset = 80;
+                  const elementPosition = clientProjectsSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                } else {
+                  // If not found, likely on a different page
+                  window.location.href = '/#client-projects';
+                }
+              }}
+            >
+              Client Projects
+            </button>
             <NavLink href="/team" label="Team" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
@@ -138,7 +178,31 @@ export default function Navbar() {
             >
               Portfolio
             </button>
-            <NavLink href="/work" label="Work" currentPath={location} onClick={closeMenu} />
+            <button 
+              className={`transition-colors duration-200 text-left ${
+                clientProjectsActive ? 'text-[#66FCF1]' : 'text-white hover:text-[#66FCF1]'
+              }`}
+              onClick={() => {
+                closeMenu();
+                // Find the client projects section and scroll to it
+                const clientProjectsSection = document.getElementById('client-projects');
+                if (clientProjectsSection) {
+                  const headerOffset = 80;
+                  const elementPosition = clientProjectsSection.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                } else {
+                  // If not found, likely on a different page
+                  window.location.href = '/#client-projects';
+                }
+              }}
+            >
+              Client Projects
+            </button>
             <NavLink href="/team" label="Team" currentPath={location} onClick={closeMenu} />
             <NavLink href="/book" label="Book" currentPath={location} onClick={closeMenu} />
           </div>
