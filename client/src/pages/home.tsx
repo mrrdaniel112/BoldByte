@@ -428,7 +428,7 @@ export default function Home() {
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 px-6 bg-[#1F2833]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-item">
+          <div id="client-projects" className="text-center mb-16 animate-item">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Client Projects</h2>
             <div className="section-divider"></div>
             <p className="text-[#C5C6C7] mt-6 max-w-2xl mx-auto">
