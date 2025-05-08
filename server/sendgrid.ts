@@ -3,6 +3,9 @@ import sgMail from '@sendgrid/mail';
 // Additional debugging information
 console.log('Initializing SendGrid service...');
 
+// Define default sender email if environment variable is not set
+const DEFAULT_FROM_EMAIL = 'boldbyte.studio@gmail.com';
+
 // Check if we have the necessary environment variables
 if (!process.env.SENDGRID_API_KEY) {
   console.warn("SENDGRID_API_KEY environment variable is not set. Email functionality will not work.");
@@ -10,14 +13,10 @@ if (!process.env.SENDGRID_API_KEY) {
   try {
     // Set the API key for SendGrid
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    console.log('SendGrid API key was set');
+    console.log('SendGrid API key was set successfully');
   } catch (error) {
     console.error('Error setting SendGrid API key:', error);
   }
-}
-
-if (!process.env.SENDGRID_SID) {
-  console.warn("SENDGRID_SID environment variable is not set. This should be the sender email address.");
 }
 
 interface EmailParams {
@@ -34,28 +33,22 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     return false;
   }
   
-  if (!process.env.SENDGRID_SID) {
-    console.error('SendGrid SID (sender email) is missing');
-    return false;
-  }
-  
   // For debugging only - never log actual API keys
   console.log('Attempting to send email with SendGrid');
-  console.log('Sender email:', process.env.SENDGRID_SID);
   console.log('Recipient email:', params.to);
   
   try {
     // Create email content
     const msg = {
       to: params.to,
-      from: process.env.SENDGRID_SID, // This must be a verified sender in your SendGrid account
+      from: DEFAULT_FROM_EMAIL, // Use a consistent, verified sender email
       subject: params.subject,
       text: params.text || '',
       html: params.html || '',
     };
     
     // Send the email
-    await sgMail.send(msg);
+    const response = await sgMail.send(msg);
     console.log('Email sent successfully to:', params.to);
     return true;
   } catch (error: any) {
