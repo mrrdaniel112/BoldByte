@@ -41,7 +41,10 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     // Create email content
     const msg = {
       to: params.to,
-      from: VERIFIED_SENDER_EMAIL, // Use the verified sender email
+      from: {
+        email: VERIFIED_SENDER_EMAIL, // Use the verified sender email
+        name: 'BOLDBYTE Studio' // Adding a friendly name improves deliverability
+      }, 
       subject: params.subject,
       text: params.text || '',
       html: params.html || '',
