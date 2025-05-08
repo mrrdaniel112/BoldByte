@@ -3,8 +3,8 @@ import sgMail from '@sendgrid/mail';
 // Additional debugging information
 console.log('Initializing SendGrid service...');
 
-// Define default sender email if environment variable is not set
-const DEFAULT_FROM_EMAIL = 'boldbyte.studio@gmail.com';
+// Define the verified sender email for SendGrid
+const VERIFIED_SENDER_EMAIL = 'boldbyte.studio@gmail.com';
 
 // Check if we have the necessary environment variables
 if (!process.env.SENDGRID_API_KEY) {
@@ -41,7 +41,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     // Create email content
     const msg = {
       to: params.to,
-      from: DEFAULT_FROM_EMAIL, // Use a consistent, verified sender email
+      from: VERIFIED_SENDER_EMAIL, // Use the verified sender email
       subject: params.subject,
       text: params.text || '',
       html: params.html || '',
