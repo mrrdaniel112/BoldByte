@@ -62,7 +62,7 @@ const workProjects = [
     categories: ["dashboard", "saas"]
   },
   {
-    image: "https://pixabay.com/get/g7f037d6700f7d39b14559d21add9998ad50e5dfc38787ed5dcbb2d1fa4008417bd6f91c3b6052d5fd7c2d2330dd86e5bfffe26113bddc25ee89c0126f37df0c2_1280.jpg",
+    image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     title: "Social Mobile App",
     description: "Community platform connecting enthusiasts in the fitness industry.",
     tags: ["React Native", "GraphQL", "AWS"],
@@ -76,7 +76,7 @@ const workProjects = [
     categories: ["saas", "productivity"]
   },
   {
-    image: "https://pixabay.com/get/gf9085598c0e1fa8063adaf2bf98498cab0adaa14fba79406c2468b5881e609238c3b172768e917f22a580bc960bf43d82f9f256a236a227d7e5becbf60e92f4c_1280.jpg",
+    image: "https://images.unsplash.com/photo-1673187946123-d1bd3d0756ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     title: "AI Assistant Platform",
     description: "Conversational AI solution for customer service automation.",
     tags: ["Python", "TensorFlow", "React"],
