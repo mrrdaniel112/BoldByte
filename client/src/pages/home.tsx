@@ -110,6 +110,45 @@ const portfolioProjects: Project[] = [
       role: "Supply Chain Director, EcoTrack Global",
       initials: "DR"
     }
+  },
+  {
+    id: 'fintech-app',
+    title: 'Secure Investment Platform',
+    description: 'A financial technology platform with real-time market data, secure transactions, and personalized investment recommendations.',
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    techs: ['React', 'Node.js', 'PostgreSQL', 'WebSockets'],
+    testimonial: {
+      quote: "BOLDBYTE developed our fintech platform with bank-level security and an intuitive interface. Their work helped us attract $2.3M in initial funding and 10,000+ users in our first 6 months.",
+      name: "Sophia Williams",
+      role: "COO, Apex Investments",
+      initials: "SW"
+    }
+  },
+  {
+    id: 'virtual-learning',
+    title: 'Interactive Virtual Learning',
+    description: 'An immersive educational platform featuring interactive lessons, progress tracking, and personalized learning paths.',
+    image: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    techs: ['Vue.js', 'Firebase', 'WebRTC', 'Canvas API'],
+    testimonial: {
+      quote: "Our virtual learning platform created by BOLDBYTE revolutionized how we deliver online education. Student engagement increased by 78% and course completion rates improved from 43% to 89%.",
+      name: "Marcus Thompson",
+      role: "Director of Education, LearnSphere",
+      initials: "MT"
+    }
+  },
+  {
+    id: 'smart-home',
+    title: 'Connected Home Management System',
+    description: 'An IoT platform that connects and manages smart home devices with voice controls, automation rules, and energy optimization.',
+    image: "https://images.unsplash.com/photo-1558002038-1055953a7bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
+    techs: ['React Native', 'Node.js', 'MQTT', 'AWS IoT'],
+    testimonial: {
+      quote: "BOLDBYTE delivered a sophisticated yet user-friendly smart home system that seamlessly integrates with over 200 device types. Our customers report an average 32% reduction in energy costs after implementation.",
+      name: "Olivia Chen",
+      role: "Product Director, HomeConnect Technologies",
+      initials: "OC"
+    }
   }
 ];
 
@@ -171,6 +210,27 @@ const testimonials = [
     role: "Supply Chain Director, EcoTrack Global",
     project: "SupplyVerify Blockchain System",
     initials: "DR"
+  },
+  {
+    quote: "BOLDBYTE developed our fintech platform with bank-level security and an intuitive interface. Their work helped us attract $2.3M in initial funding and 10,000+ users in our first 6 months.",
+    name: "Sophia Williams",
+    role: "COO, Apex Investments",
+    project: "Secure Investment Platform",
+    initials: "SW"
+  },
+  {
+    quote: "Our virtual learning platform created by BOLDBYTE revolutionized how we deliver online education. Student engagement increased by 78% and course completion rates improved from 43% to 89%.",
+    name: "Marcus Thompson",
+    role: "Director of Education, LearnSphere",
+    project: "Interactive Virtual Learning",
+    initials: "MT"
+  },
+  {
+    quote: "BOLDBYTE delivered a sophisticated yet user-friendly smart home system that seamlessly integrates with over 200 device types. Our customers report an average 32% reduction in energy costs after implementation.",
+    name: "Olivia Chen",
+    role: "Product Director, HomeConnect Technologies",
+    project: "Connected Home Management System",
+    initials: "OC"
   }
 ];
 
@@ -309,7 +369,7 @@ export default function Home() {
           </div>
           
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {portfolioProjects.slice(3, 5).map((project, index) => (
+            {portfolioProjects.slice(3, 7).map((project, index) => (
               <div 
                 key={index + 3}
                 className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
