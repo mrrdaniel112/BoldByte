@@ -70,12 +70,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
         The BOLDBYTE Team
       `;
       
-      // Send the email using SendGrid
+      // Create email for admin notification
+      const adminEmailHtml = `
+        <h2>New Project Inquiry</h2>
+        <p><strong>Name:</strong> ${formData.name}</p>
+        <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Project Type:</strong> ${formData.projectType}</p>
+        <p><strong>Budget Range:</strong> ${formData.budget}</p>
+        <p><strong>Message:</strong></p>
+        <p>${formData.message.replace(/\n/g, '<br>')}</p>
+      `;
+      
+      const adminEmailText = `
+        New Project Inquiry
+        
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Project Type: ${formData.projectType}
+        Budget Range: ${formData.budget}
+        
+        Message:
+        ${formData.message}
+      `;
+      
+      // Send confirmation to user
       const emailSent = await sendEmail({
-        to: formData.email, // Send directly to the user's provided email
+        to: formData.email, // Send to the user's email
         subject: `BOLDBYTE Project Inquiry Confirmation`,
         html: emailHtml,
         text: emailText,
+      });
+      
+      // Send notification to admin
+      await sendEmail({
+        to: 'boldbyte.studio@gmail.com', // Send to the business email
+        subject: `New Project Inquiry from ${formData.name}`,
+        html: adminEmailHtml,
+        text: adminEmailText,
       });
       
       if (emailSent) {
