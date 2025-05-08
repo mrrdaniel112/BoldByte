@@ -45,6 +45,73 @@ interface Project {
   };
 }
 
+// Import projects from work page to avoid duplication
+const workProjects = [
+  {
+    image: "https://images.unsplash.com/photo-1610552050890-fe99536c2615?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    title: "Modern E-commerce",
+    description: "A sleek online store with custom product views and seamless checkout.",
+    tags: ["React", "Next.js", "Stripe"],
+    categories: ["ecommerce"]
+  },
+  {
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    title: "Analytics Dashboard",
+    description: "Real-time data visualization platform for a SaaS company.",
+    tags: ["Vue.js", "D3.js", "Firebase"],
+    categories: ["dashboard", "saas"]
+  },
+  {
+    image: "https://pixabay.com/get/g7f037d6700f7d39b14559d21add9998ad50e5dfc38787ed5dcbb2d1fa4008417bd6f91c3b6052d5fd7c2d2330dd86e5bfffe26113bddc25ee89c0126f37df0c2_1280.jpg",
+    title: "Social Mobile App",
+    description: "Community platform connecting enthusiasts in the fitness industry.",
+    tags: ["React Native", "GraphQL", "AWS"],
+    categories: ["mobile"]
+  },
+  {
+    image: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    title: "Project Management Tool",
+    description: "Task management system with team collaboration features.",
+    tags: ["Angular", "Node.js", "MongoDB"],
+    categories: ["saas", "productivity"]
+  },
+  {
+    image: "https://pixabay.com/get/gf9085598c0e1fa8063adaf2bf98498cab0adaa14fba79406c2468b5881e609238c3b172768e917f22a580bc960bf43d82f9f256a236a227d7e5becbf60e92f4c_1280.jpg",
+    title: "AI Assistant Platform",
+    description: "Conversational AI solution for customer service automation.",
+    tags: ["Python", "TensorFlow", "React"],
+    categories: ["ai"]
+  },
+  {
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    title: "Corporate Website",
+    description: "Brand-focused website with interactive elements for a financial firm.",
+    tags: ["WordPress", "Elementor", "PHP"],
+    categories: ["website"]
+  },
+  {
+    image: "https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    title: "Restaurant Ordering App",
+    description: "Mobile app for table reservations and food ordering with delivery tracking.",
+    tags: ["Flutter", "Firebase", "Stripe"],
+    categories: ["mobile", "ecommerce"]
+  },
+  {
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    title: "Investment Portfolio Tracker",
+    description: "Financial dashboard for tracking investments and market performance.",
+    tags: ["React", "Chart.js", "Express"],
+    categories: ["dashboard", "fintech"]
+  },
+  {
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+    title: "Educational Platform",
+    description: "Online learning platform with course management and progress tracking.",
+    tags: ["Next.js", "PostgreSQL", "AWS"],
+    categories: ["saas", "education"]
+  }
+];
+
 const portfolioProjects: Project[] = [
   {
     id: 'storefront',
@@ -234,6 +301,40 @@ const testimonials = [
   }
 ];
 
+// Convert work projects to portfolio format
+const convertedWorkProjects: Project[] = workProjects
+  // Filter out projects that already exist in the portfolio (to avoid duplicates)
+  .filter(workProject => 
+    !portfolioProjects.some(
+      p => p.title.toLowerCase() === workProject.title.toLowerCase() || 
+           p.description.toLowerCase() === workProject.description.toLowerCase()
+    )
+  )
+  .map((workProject, index) => {
+    // Create a unique ID based on the project title
+    const id = workProject.title.toLowerCase().replace(/\s+/g, '-');
+    
+    // Create default testimonial
+    const defaultTestimonial = {
+      quote: `${workProject.description} Our team at BOLDBYTE delivered this solution with exceptional attention to detail and technical expertise.`,
+      name: "Client Testimonial",
+      role: "Project Lead",
+      initials: "CL"
+    };
+    
+    return {
+      id,
+      title: workProject.title,
+      description: workProject.description,
+      image: workProject.image,
+      techs: workProject.tags,
+      testimonial: defaultTestimonial
+    };
+  });
+
+// Merge portfolio projects with converted work projects
+const allProjects = [...portfolioProjects, ...convertedWorkProjects];
+
 export default function Home() {
   useAnimateOnScroll('.animate-item');
   const [activeTestimonial, setActiveTestimonial] = useState<string | null>(null);
@@ -336,7 +437,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioProjects.slice(0, 3).map((project, index) => (
+            {allProjects.slice(0, 3).map((project, index) => (
               <div 
                 key={index}
                 className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
@@ -369,7 +470,7 @@ export default function Home() {
           </div>
           
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {portfolioProjects.slice(3, 7).map((project, index) => (
+            {allProjects.slice(3, 7).map((project, index) => (
               <div 
                 key={index + 3}
                 className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
@@ -444,65 +545,36 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Project 1 */}
-            <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src="https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-                alt="Modern E-commerce" 
-                className="w-full h-56 object-cover object-center"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Modern E-commerce</h3>
-                <p className="text-[#C5C6C7] text-sm mb-4">
-                  A sleek online store with custom product views and seamless checkout.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">React</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Next.js</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Stripe</span>
+            {allProjects.slice(8, 11).map((project, index) => (
+              <div 
+                key={index + 8}
+                className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item"
+                style={{ animationDelay: `${0.1 * (index + 1)}s` }}
+              >
+                <ProjectImageRenderer image={project.image} title={project.title} />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-[#C5C6C7] text-sm mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techs.map((tech, techIndex) => (
+                      <span key={techIndex} className="text-xs bg-[#1F2833] px-2 py-1 rounded">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full mt-2 border-[#66FCF1] text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0B0C10]"
+                    onClick={() => scrollToTestimonial(project.id)}
+                  >
+                    Client Testimonial
+                  </Button>
                 </div>
               </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src="https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80" 
-                alt="Blockchain Supply Chain" 
-                className="w-full h-56 object-cover object-center"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Blockchain Supply Chain</h3>
-                <p className="text-[#C5C6C7] text-sm mb-4">
-                  Transparent blockchain-based verification system for product authenticity.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Solidity</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">React</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">Node.js</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 3 */}
-            <div className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item">
-              <img 
-                src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-                alt="HealthTrack Pro App" 
-                className="w-full h-56 object-cover object-center"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">HealthTrack Pro App</h3>
-                <p className="text-[#C5C6C7] text-sm mb-4">
-                  Fitness and health tracking mobile application with real-time health monitoring.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">React Native</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">GraphQL</span>
-                  <span className="text-xs bg-[#1F2833] px-2 py-1 rounded">AWS</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -521,7 +593,7 @@ export default function Home() {
           {activeTestimonial ? (
             // Show the active testimonial when a project is selected
             <div className="max-w-3xl mx-auto">
-              {portfolioProjects.map((project, index) => (
+              {allProjects.map((project, index) => (
                 project.id === activeTestimonial && (
                   <div 
                     key={index}
@@ -578,7 +650,7 @@ export default function Home() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {testimonials.slice(0, 3).map((testimonial, index) => (
                   <div 
-                    id={`${portfolioProjects[index].id}-testimonial`}
+                    id={`${allProjects[index].id}-testimonial`}
                     key={index} 
                     className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item hover:border-[#66FCF1] transition-all duration-300"
                     style={{ animationDelay: `${0.1 * (index + 1)}s` }}
@@ -610,7 +682,7 @@ export default function Home() {
               <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {testimonials.slice(3, 7).map((testimonial, index) => (
                   <div 
-                    id={`${portfolioProjects[index + 3].id}-testimonial`}
+                    id={`${allProjects[index + 3].id}-testimonial`}
                     key={index + 3} 
                     className="bg-[#1F2833] p-8 rounded-xl border border-gray-800 animate-item hover:border-[#66FCF1] transition-all duration-300"
                     style={{ animationDelay: `${0.1 * (index + 4)}s` }}
