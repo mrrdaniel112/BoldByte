@@ -3,8 +3,8 @@ import sgMail from '@sendgrid/mail';
 // Additional debugging information
 console.log('Initializing SendGrid service...');
 
-// Define the verified sender email for SendGrid
-const VERIFIED_SENDER_EMAIL = 'boldbyte.studio@gmail.com';
+// Define the verified sender email for SendGrid - using a different domain for better deliverability
+const VERIFIED_SENDER_EMAIL = 'no-reply@boldbyte-dev.com';
 
 // Check if we have the necessary environment variables
 if (!process.env.SENDGRID_API_KEY) {
@@ -50,6 +50,12 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     // Send the email
     const response = await sgMail.send(msg);
     console.log('Email sent successfully to:', params.to);
+    console.log('SendGrid response:', response);
+    
+    if (params.to.includes('gmail.com')) {
+      console.log('NOTE: Gmail may delay delivery or filter emails without SPF/DKIM verification.');
+    }
+    
     return true;
   } catch (error: any) {
     console.error('SendGrid email error:', error);

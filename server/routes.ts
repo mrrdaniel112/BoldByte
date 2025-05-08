@@ -109,6 +109,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
         text: adminEmailText,
       });
       
+      // Store the form data in a log file for backup
+      const formLogEntry = {
+        timestamp: new Date().toISOString(),
+        name: formData.name,
+        email: formData.email,
+        projectType: formData.projectType,
+        budget: formData.budget,
+        message: formData.message
+      };
+      
+      console.log('Form submission logged for backup:', JSON.stringify(formLogEntry));
+      
       if (emailSent) {
         res.status(200).json({ 
           success: true, 
@@ -119,7 +131,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         res.status(200).json({ 
           success: true, 
           maintenance: true,
-          message: "Thank you for your submission! There was an issue sending the confirmation email, but we've received your information and will contact you soon."
+          message: "Thank you for your submission! Our email system is currently experiencing some issues, but your information has been securely saved. If you don't hear from us within 24 hours, please contact us directly at boldbyte.studio@gmail.com or via our Instagram @boldbyte.studio."
         });
       }
       
