@@ -14,6 +14,8 @@ type ProjectImage = React.ReactElement | string;
 
 // Component to render either a React component or an image URL
 const ProjectImageRenderer = ({ image, title }: { image: ProjectImage, title: string }) => {
+  const [imageError, setImageError] = useState(false);
+  
   if (React.isValidElement(image)) {
     return (
       <div className="w-full h-48 overflow-hidden">
@@ -22,11 +24,15 @@ const ProjectImageRenderer = ({ image, title }: { image: ProjectImage, title: st
     );
   }
   
+  // Fallback image if the provided URL fails to load
+  const fallbackImageUrl = "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80";
+  
   return (
     <img 
-      src={image as string} 
+      src={imageError ? fallbackImageUrl : (image as string)} 
       alt={title} 
       className="w-full h-48 object-cover object-center"
+      onError={() => setImageError(true)}
     />
   );
 };
@@ -76,7 +82,7 @@ const workProjects = [
     categories: ["saas", "productivity"]
   },
   {
-    image: "https://images.unsplash.com/photo-1673187946123-d1bd3d0756ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1677442135136-760c813dba00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
     title: "AI Assistant Platform",
     description: "Conversational AI solution for customer service automation.",
     tags: ["Python", "TensorFlow", "React"],
