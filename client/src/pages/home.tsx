@@ -608,7 +608,7 @@ export default function Home() {
               </div>
               
               <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {testimonials.slice(3, 5).map((testimonial, index) => (
+                {testimonials.slice(3, 7).map((testimonial, index) => (
                   <div 
                     id={`${portfolioProjects[index + 3].id}-testimonial`}
                     key={index + 3} 
