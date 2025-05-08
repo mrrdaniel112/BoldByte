@@ -45,9 +45,12 @@ export default function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-2xl font-bold">
-            <span className="text-white">BOLD</span>
-            <span className="text-[#66FCF1]">BYTE</span>
+          <Link href="/" className="flex items-center">
+            <img 
+              src="/src/assets/boldbyte-logo.svg" 
+              alt="BOLDBYTE Logo" 
+              className="h-8 md:h-10" 
+            />
           </Link>
           
           <div className="hidden md:flex space-x-8">
