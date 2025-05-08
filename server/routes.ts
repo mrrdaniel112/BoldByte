@@ -8,6 +8,7 @@ import { z } from "zod";
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
+  phone: z.string().optional(),
   projectType: z.string().min(1, { message: 'Please select a project type' }),
   budget: z.string().min(1, { message: 'Please select a budget range' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
@@ -37,6 +38,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         <hr>
         <p><strong>Name:</strong> ${formData.name}</p>
         <p><strong>Email:</strong> ${formData.email}</p>
+        ${formData.phone ? `<p><strong>Phone:</strong> ${formData.phone}</p>` : ''}
         <p><strong>Project Type:</strong> ${formData.projectType}</p>
         <p><strong>Budget Range:</strong> ${formData.budget}</p>
         <p><strong>Your Message:</strong></p>
@@ -57,6 +59,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         ----------------------------------
         Name: ${formData.name}
         Email: ${formData.email}
+        ${formData.phone ? `Phone: ${formData.phone}` : ''}
         Project Type: ${formData.projectType}
         Budget Range: ${formData.budget}
         
@@ -75,6 +78,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         <h2>New Project Inquiry</h2>
         <p><strong>Name:</strong> ${formData.name}</p>
         <p><strong>Email:</strong> ${formData.email}</p>
+        ${formData.phone ? `<p><strong>Phone:</strong> ${formData.phone}</p>` : ''}
         <p><strong>Project Type:</strong> ${formData.projectType}</p>
         <p><strong>Budget Range:</strong> ${formData.budget}</p>
         <p><strong>Message:</strong></p>
@@ -86,6 +90,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         
         Name: ${formData.name}
         Email: ${formData.email}
+        ${formData.phone ? `Phone: ${formData.phone}` : ''}
         Project Type: ${formData.projectType}
         Budget Range: ${formData.budget}
         

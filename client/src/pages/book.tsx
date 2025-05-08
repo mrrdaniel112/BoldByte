@@ -16,6 +16,7 @@ import useAnimateOnScroll from '@/hooks/useAnimateOnScroll';
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
+  phone: z.string().min(7, { message: 'Please enter a valid phone number' }).optional(),
   projectType: z.string().min(1, { message: 'Please select a project type' }),
   budget: z.string().min(1, { message: 'Please select a budget range' }),
   message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
@@ -37,6 +38,7 @@ export default function Book() {
     defaultValues: {
       name: '',
       email: '',
+      phone: '',
       projectType: '',
       budget: '',
       message: '',
@@ -167,6 +169,25 @@ export default function Book() {
                           <Input 
                             placeholder="Your email address" 
                             type="email" 
+                            className="bg-[#1F2833] border-gray-700 focus:border-[#66FCF1] focus:ring-[#66FCF1]" 
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone Number (Optional)</FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="Your phone number" 
+                            type="tel" 
                             className="bg-[#1F2833] border-gray-700 focus:border-[#66FCF1] focus:ring-[#66FCF1]" 
                             {...field} 
                           />
