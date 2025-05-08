@@ -30,31 +30,50 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Create email content
       const emailHtml = `
-        <h2>New Contact Form Submission</h2>
+        <h2>BOLDBYTE Contact Form Confirmation</h2>
+        <p>Hello ${formData.name},</p>
+        <p>Thank you for contacting BOLDBYTE! This is a confirmation that we've received your inquiry. We'll get back to you within 24 hours.</p>
+        <p>Here's a summary of your submission:</p>
+        <hr>
         <p><strong>Name:</strong> ${formData.name}</p>
         <p><strong>Email:</strong> ${formData.email}</p>
         <p><strong>Project Type:</strong> ${formData.projectType}</p>
         <p><strong>Budget Range:</strong> ${formData.budget}</p>
-        <p><strong>Message:</strong></p>
+        <p><strong>Your Message:</strong></p>
         <p>${formData.message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p>If you need to reach us immediately, please email us at boldbyte.studio@gmail.com</p>
+        <p>Regards,<br>The BOLDBYTE Team</p>
       `;
       
       const emailText = `
-        New Contact Form Submission
+        BOLDBYTE Contact Form Confirmation
         
+        Hello ${formData.name},
+        
+        Thank you for contacting BOLDBYTE! This is a confirmation that we've received your inquiry. We'll get back to you within 24 hours.
+        
+        Here's a summary of your submission:
+        ----------------------------------
         Name: ${formData.name}
         Email: ${formData.email}
         Project Type: ${formData.projectType}
         Budget Range: ${formData.budget}
         
-        Message:
+        Your Message:
         ${formData.message}
+        ----------------------------------
+        
+        If you need to reach us immediately, please email us at boldbyte.studio@gmail.com
+        
+        Regards,
+        The BOLDBYTE Team
       `;
       
       // Send the email using SendGrid
       const emailSent = await sendEmail({
-        to: 'danielgolda@live.com', // Send to the owner's email
-        subject: `New Project Inquiry from ${formData.name}`,
+        to: formData.email, // Send directly to the user's provided email
+        subject: `BOLDBYTE Project Inquiry Confirmation`,
         html: emailHtml,
         text: emailText,
       });
@@ -62,14 +81,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (emailSent) {
         res.status(200).json({ 
           success: true, 
-          message: 'Thank you for your submission! We will contact you within 24 hours.'
+          message: 'Thank you for your submission! We just sent a confirmation to your email. We will contact you within 24 hours.'
         });
       } else {
         // If SendGrid fails, still tell the user their form was received
         res.status(200).json({ 
           success: true, 
           maintenance: true,
-          message: "Thank you for your submission! Our email system is experiencing issues, but we've received your information and will contact you soon."
+          message: "Thank you for your submission! There was an issue sending the confirmation email, but we've received your information and will contact you soon."
         });
       }
       
