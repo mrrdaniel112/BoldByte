@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" viewBox="0 0 300 80">
+  <style>
+    .logo-text {
+      font-family: 'Arial Black', Gadget, sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      fill: #ffffff;
+    }
+    .logo-accent {
+      fill: #66FCF1;
+    }
+    .byte-bracket {
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 42px;
+      fill: #66FCF1;
+    }
+  </style>
+  <rect width="300" height="80" rx="8" fill="#0B0C10" />
+  <text x="30" y="50" class="logo-text">BOLD<tspan class="logo-accent">BYTE</tspan></text>
+  <text x="240" y="50" class="byte-bracket">{ }</text>
+</svg>

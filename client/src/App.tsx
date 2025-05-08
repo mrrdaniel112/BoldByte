@@ -11,6 +11,7 @@ import Work from "@/pages/work";
 import Book from "@/pages/book";
 import Success from "@/pages/success";
 import Team from "@/pages/team";
+import Logo from "@/pages/logo";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 
 function Router() {
@@ -24,6 +25,7 @@ function Router() {
           <Route path="/team" component={Team} />
           <Route path="/book" component={Book} />
           <Route path="/success" component={Success} />
+          <Route path="/logo" component={Logo} />
           <Route component={NotFound} />
         </Switch>
       </main>
