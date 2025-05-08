@@ -11,7 +11,9 @@ const contactFormSchema = z.object({
   phone: z.string().optional(),
   projectType: z.string().min(1, { message: 'Please select a project type' }),
   budget: z.string().min(1, { message: 'Please select a budget range' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
+  message: z.string()
+    .min(10, { message: 'Message must be at least 10 characters' })
+    .max(2000, { message: 'Message must be less than 2000 characters' }),
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {

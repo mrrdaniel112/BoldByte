@@ -6,7 +6,7 @@ const formSchema = z.object({
   phone: z.string().optional(),
   projectType: z.string(),
   budget: z.string(),
-  message: z.string().min(10),
+  message: z.string().min(10).max(2000, "Message must be less than 2000 characters"),
 });
 
 type ContactFormData = z.infer<typeof formSchema>;

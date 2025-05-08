@@ -262,9 +262,15 @@ export default function Book() {
                             placeholder="Tell us about your project" 
                             className="bg-[#1F2833] border-gray-700 focus:border-[#66FCF1] focus:ring-[#66FCF1]" 
                             rows={4}
+                            maxLength={2000}
                             {...field} 
                           />
                         </FormControl>
+                        <div className="flex justify-end">
+                          <p className="text-xs text-gray-400">
+                            {field.value.length}/2000 characters
+                          </p>
+                        </div>
                         <FormMessage />
                       </FormItem>
                     )}
