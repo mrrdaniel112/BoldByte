@@ -437,7 +437,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allProjects.slice(0, 3).map((project, index) => (
+            {allProjects.slice(0, 6).map((project, index) => (
               <div 
                 key={index}
                 className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
@@ -470,7 +470,7 @@ export default function Home() {
           </div>
           
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {allProjects.slice(3, 7).map((project, index) => (
+            {allProjects.slice(6, 10).map((project, index) => (
               <div 
                 key={index + 3}
                 className="bg-[#0B0C10] border border-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#66FCF1] group animate-item"
@@ -545,7 +545,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {allProjects.slice(8, 11).map((project, index) => (
+            {allProjects.slice(10, 13).map((project, index) => (
               <div 
                 key={index + 8}
                 className="group relative overflow-hidden rounded-xl bg-[#0B0C10] border border-gray-800 hover:border-[#66FCF1] transition-all duration-300 animate-item"
