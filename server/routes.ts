@@ -25,6 +25,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log('Contact form submission received:', { 
         name: formData.name,
         email: formData.email,
+        phone: formData.phone || 'Not provided',
         projectType: formData.projectType,
         budget: formData.budget
       });
@@ -119,6 +120,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         timestamp: new Date().toISOString(),
         name: formData.name,
         email: formData.email,
+        phone: formData.phone || 'Not provided',
         projectType: formData.projectType,
         budget: formData.budget,
         message: formData.message
