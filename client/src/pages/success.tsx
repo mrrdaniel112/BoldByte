@@ -31,7 +31,7 @@ export default function Success() {
               className="w-full border-[#66FCF1] text-[#66FCF1] hover:bg-[#66FCF1] hover:text-[#0B0C10]"
               asChild
             >
-              <Link href="/work">Explore Our Work</Link>
+              <Link href="/#portfolio">Explore Our Work</Link>
             </Button>
           </div>
         </div>
